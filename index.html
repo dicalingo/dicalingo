@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دیکالینگو | آموزش زبان انگلیسی</title>
-<meta name="description" content="یادگیری ساده، کاربردی و هدفمند زبان انگلیسی با دیکالینگو">
+<title>دوره‌های آموزشی | دیکالینگو</title>
+<meta name="description" content="دوره‌های آموزش زبان انگلیسی دیکالینگو">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,6 @@
   --blue: #DCEBFA;
   --text: #272B3C;
   --muted: #777B89;
-  --radius: 24px;
 }
 
 * {
@@ -45,17 +44,14 @@ body {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  font-family: inherit;
 }
 
 .container {
   width: min(1160px, 91%);
   margin: auto;
-}
-
-button, a {
-  font-family: inherit;
 }
 
 /* HEADER */
@@ -98,29 +94,47 @@ header {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a.active {
   color: var(--orange);
 }
 
-/* HERO */
+.nav-button {
+  background: var(--navy);
+  color: white;
+  padding: 12px 23px;
+  border-radius: 13px;
+  font-size: 13px;
+  box-shadow: 0 5px 0 #0D1020;
+  transition: background .2s, box-shadow .2s, transform .2s;
+  white-space: nowrap;
+}
 
-.hero-area {
+.nav-button:hover {
+  background: var(--orange);
+  box-shadow: 0 5px 0 #C94400;
+  transform: translateY(-2px);
+}
+
+/* PAGE HERO */
+
+.page-area {
   padding: 35px 0 20px;
 }
 
-.hero {
+.page-hero {
+  min-height: 350px;
+  border-radius: 32px;
   background: var(--peach);
-  border-radius: 34px;
-  min-height: 480px;
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr .8fr;
   align-items: center;
+  padding: 45px 6%;
+  gap: 25px;
   overflow: hidden;
   position: relative;
-  padding: 55px 6%;
 }
 
-.hero-content {
+.page-hero-content {
   position: relative;
   z-index: 2;
 }
@@ -146,124 +160,125 @@ header {
   background: var(--orange);
 }
 
-.hero h1 {
+.page-hero h1 {
+  font-size: clamp(34px, 4.5vw, 48px);
+  line-height: 1.6;
   color: var(--navy);
-  font-size: clamp(34px, 4.5vw, 53px);
   font-weight: 900;
-  line-height: 1.65;
-  margin-top: 25px;
-  letter-spacing: -1.5px;
+  margin-top: 20px;
 }
 
-.hero h1 span {
+.page-hero h1 span {
   color: var(--orange);
 }
 
-.hero-description {
-  font-size: 15px;
+.page-hero p {
+  font-size: 14px;
   line-height: 2.2;
   color: #66616A;
-  margin-top: 15px;
-  max-width: 430px;
+  max-width: 470px;
+  margin-top: 12px;
 }
 
-/* HERO DECORATION */
-
-.hero-art {
-  min-height: 350px;
-  position: relative;
+.hero-visual {
+  min-height: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.art-circle {
-  width: 270px;
-  height: 270px;
-  border-radius: 46% 54% 58% 42% / 46% 43% 57% 54%;
+.visual-circle {
+  width: 215px;
+  height: 215px;
+  border-radius: 47% 53% 59% 41%;
   background: var(--orange);
   position: absolute;
-  transform: rotate(-12deg);
   box-shadow:
-    inset -12px -15px 0 rgba(150,48,0,.12),
-    10px 17px 0 rgba(23,27,46,.08);
+    inset -12px -12px 0 rgba(150,48,0,.12),
+    9px 13px 0 rgba(23,27,46,.08);
+  transform: rotate(12deg);
 }
 
-.art-card {
-  position: absolute;
-  width: 205px;
-  height: 160px;
+.visual-card {
+  width: 165px;
+  height: 130px;
   background: white;
-  border-radius: 25px;
-  box-shadow: 0 12px 0 rgba(23,27,46,.10);
+  border-radius: 24px;
+  box-shadow: 0 10px 0 rgba(23,27,46,.10);
+  position: relative;
+  z-index: 2;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform: rotate(7deg);
-  z-index: 2;
+  flex-direction: column;
+  transform: rotate(-6deg);
 }
 
-.art-card strong {
-  font-size: 33px;
-  color: var(--navy);
+.visual-card strong {
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: -1px;
+  color: var(--navy);
 }
 
-.art-card small {
+.visual-card small {
   color: var(--orange);
-  font-size: 12px;
-  margin-top: 8px;
+  font-size: 11px;
+  margin-top: 7px;
   font-weight: 700;
 }
 
-.art-card .art-line {
-  width: 70px;
+.visual-card div {
+  width: 55px;
   height: 5px;
-  border-radius: 9px;
   background: var(--orange);
-  margin-top: 15px;
+  border-radius: 9px;
+  margin-top: 12px;
 }
 
-.art-star {
+.visual-star {
   position: absolute;
-  font-size: 43px;
-  color: var(--yellow);
-  top: 28px;
-  right: 12px;
+  top: 10px;
+  right: 5px;
+  color: var(--orange);
+  font-size: 42px;
+}
+
+.visual-bubble {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--mint);
+  bottom: 10px;
+  left: 8px;
   transform: rotate(15deg);
 }
 
-.art-dot {
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: var(--mint);
-  bottom: 35px;
-  left: 20px;
-  box-shadow: inset -5px -5px 0 rgba(23,27,46,.06);
-}
+/* BREADCRUMB */
 
-.art-small-card {
-  position: absolute;
-  z-index: 3;
-  background: var(--yellow);
-  padding: 13px 18px;
-  border-radius: 15px;
-  bottom: 35px;
-  right: 10px;
-  transform: rotate(-7deg);
-  box-shadow: 0 6px 0 rgba(23,27,46,.08);
+.breadcrumb {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin: 24px 4px;
   font-size: 12px;
-  font-weight: 800;
+  color: var(--muted);
+  flex-wrap: wrap;
 }
 
-/* GENERAL SECTIONS */
+.breadcrumb a:hover {
+  color: var(--orange);
+}
 
-section {
-  padding: 95px 0;
+.breadcrumb .current {
+  color: var(--orange);
+}
+
+/* COURSE INTRO */
+
+.course-intro {
+  padding: 65px 0 25px;
 }
 
 .section-label {
@@ -274,224 +289,186 @@ section {
 }
 
 .section-title {
-  font-size: clamp(27px, 3.2vw, 37px);
-  color: var(--navy);
+  font-size: clamp(27px, 3vw, 36px);
   font-weight: 900;
-  letter-spacing: -.7px;
+  color: var(--navy);
   line-height: 1.7;
 }
 
 .section-desc {
-  color: var(--muted);
   font-size: 14px;
   line-height: 2.2;
-  max-width: 570px;
+  color: var(--muted);
   margin-top: 12px;
+  max-width: 600px;
 }
 
-/* FEATURES */
+/* COURSE CARD */
 
-.features-section {
+.course-card {
   background: white;
-  border-radius: 40px;
-  margin-top: 50px;
-}
-
-.section-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 25px;
-  margin-bottom: 38px;
-}
-
-.features-grid {
+  border: 1px solid #F0E8E2;
+  border-radius: 28px;
+  padding: 25px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.feature-card {
-  min-height: 245px;
-  border-radius: 25px;
-  padding: 27px;
-  position: relative;
-  overflow: hidden;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 35px;
+  align-items: center;
+  box-shadow: 0 7px 0 rgba(23,27,46,.035);
+  margin: 25px 0 70px;
   transition: transform .3s ease, box-shadow .3s ease;
 }
 
-.feature-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 12px 25px rgba(23,27,46,.08);
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(23,27,46,.07);
 }
 
-.feature-card.peach {
-  background: var(--peach);
-}
-
-.feature-card.mint {
-  background: var(--mint);
-}
-
-.feature-card.lavender {
+.course-art {
+  min-height: 280px;
+  border-radius: 22px;
   background: var(--lavender);
-}
-
-.feature-number {
-  width: 43px;
-  height: 43px;
-  background: rgba(255,255,255,.8);
-  border-radius: 14px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: var(--orange);
-  font-size: 13px;
-  font-weight: 900;
-  box-shadow: 0 4px 0 rgba(23,27,46,.05);
-}
-
-.feature-card h3 {
-  font-size: 19px;
-  font-weight: 800;
-  margin-top: 27px;
-  color: var(--navy);
-}
-
-.feature-card p {
-  color: #656879;
-  font-size: 13px;
-  line-height: 2.1;
-  margin-top: 10px;
-}
-
-.feature-decoration {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  left: -25px;
-  bottom: -35px;
-  background: rgba(255,255,255,.38);
-  pointer-events: none;
-  transition: transform .4s ease;
-}
-
-.feature-card:hover .feature-decoration {
-  transform: scale(1.25);
-}
-
-/* ABOUT */
-
-.about-layout {
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.about-layout .section-desc {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* COURSE PROMO */
-
-.course-section {
-  background: var(--navy);
-  border-radius: 35px;
-  color: white;
-  padding: 65px;
+  align-items: center;
   position: relative;
   overflow: hidden;
 }
 
-.course-section::before {
+.course-art::before {
   content: "";
-  position: absolute;
-  width: 270px;
-  height: 270px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
-  border: 40px solid rgba(255,90,0,.12);
-  left: -70px;
-  top: -90px;
+  background: var(--orange);
+  position: absolute;
+  box-shadow: inset -10px -12px 0 rgba(150,48,0,.12);
+}
+
+.course-art-card {
+  position: relative;
+  z-index: 2;
+  width: 175px;
+  height: 130px;
+  background: white;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 9px 0 rgba(23,27,46,.10);
+  transform: rotate(-7deg);
+}
+
+.course-art-card strong {
+  font-size: 26px;
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.course-art-card small {
+  font-size: 11px;
+  color: var(--orange);
+  margin-top: 7px;
+  font-weight: 700;
+}
+
+.course-art-star {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 38px;
+}
+
+.course-info {
+  padding: 12px 10px;
+  min-width: 0;
+}
+
+.status {
+  display: inline-block;
+  background: var(--yellow);
+  color: #856000;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.course-info h2 {
+  font-size: 25px;
+  color: var(--navy);
+  margin-top: 19px;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
+.course-info p {
+  font-size: 14px;
+  line-height: 2.2;
+  color: var(--muted);
+  margin-top: 12px;
+}
+
+.course-info .note {
+  margin-top: 22px;
+  padding: 13px 16px;
+  background: var(--cream);
+  border-radius: 13px;
+  color: #6B6570;
+  font-size: 12px;
+  line-height: 2;
+  border: 1px solid #F0E8E2;
+}
+
+/* BOTTOM BANNER */
+
+.bottom-banner {
+  background: var(--navy);
+  border-radius: 30px;
+  padding: 45px;
+  margin-bottom: 85px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.bottom-banner::after {
+  content: "";
+  width: 190px;
+  height: 190px;
+  border: 25px solid rgba(255,90,0,.13);
+  border-radius: 50%;
+  position: absolute;
+  left: -60px;
+  top: -80px;
   pointer-events: none;
 }
 
-.course-content {
+.banner-content {
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
 }
 
-.course-section .section-title {
-  color: white;
+.banner-content h2 {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.8;
 }
 
-.course-section .section-desc {
+.banner-content p {
+  font-size: 13px;
+  line-height: 2.2;
   color: #C3C6D1;
+  margin-top: 10px;
+  max-width: 650px;
 }
 
-.course-button {
-  display: inline-block;
-  flex-shrink: 0;
-  background: var(--orange);
-  color: white;
-  padding: 15px 24px;
-  border-radius: 14px;
-  box-shadow: 0 5px 0 #C94400;
-  font-size: 13px;
-  font-weight: 700;
-  transition: transform .2s ease, box-shadow .2s ease;
-  text-align: center;
-}
-
-.course-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 0 #C94400;
-}
-
-/* SOCIAL */
-
-.social-section {
-  text-align: center;
-}
-
-.social-section .section-desc {
-  margin: 12px auto 32px;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.social-links a {
-  min-width: 140px;
-  padding: 15px 23px;
-  background: white;
-  border-radius: 16px;
-  border: 1px solid #F0E8E2;
-  font-size: 13px;
-  font-weight: 700;
-  box-shadow: 0 5px 0 rgba(23,27,46,.04);
-  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
-}
-
-.social-links a:hover {
-  background: var(--peach);
-  transform: translateY(-4px);
-  box-shadow: 0 9px 15px rgba(23,27,46,.06);
-}
-
-/* KEYBOARD ACCESSIBILITY */
+/* ACCESSIBILITY */
 
 a:focus-visible {
-  outline: 3px solid var(--navy);
+  outline: 3px solid var(--orange);
   outline-offset: 4px;
 }
 
@@ -517,8 +494,8 @@ footer {
 
 .footer-inner p {
   font-size: 11px;
-  color: #B7BAC6;
   line-height: 2;
+  color: #B7BAC6;
 }
 
 /* SCROLL REVEAL */
@@ -536,24 +513,36 @@ footer {
 
 /* DECORATIVE FLOAT ANIMATIONS */
 
-.art-circle {
+.visual-circle {
   animation: circleFloat 6s ease-in-out infinite;
 }
 
-.art-card {
+.visual-card {
   animation: cardFloat 5s ease-in-out infinite;
 }
 
-.art-star {
+.visual-star {
   animation: starFloat 4s ease-in-out infinite;
 }
 
-.art-dot {
+.visual-bubble {
   animation: dotFloat 5.5s ease-in-out infinite;
 }
 
-.art-small-card {
-  animation: smallCardFloat 4.5s ease-in-out infinite;
+.course-art::before {
+  animation: circleFloat 6s ease-in-out infinite;
+}
+
+.course-art-card {
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.course-art-star {
+  animation: starFloat 4s ease-in-out infinite;
+}
+
+.bottom-banner::after {
+  animation: bannerFloat 8s ease-in-out infinite;
 }
 
 @keyframes circleFloat {
@@ -594,58 +583,47 @@ footer {
   }
 }
 
-@keyframes smallCardFloat {
+@keyframes bannerFloat {
   0%, 100% {
     translate: 0 0;
   }
   50% {
-    translate: 0 -7px;
+    translate: 0 15px;
   }
 }
 
 /* RESPONSIVE */
 
 @media(max-width: 800px) {
-  .hero {
+  .page-hero {
     grid-template-columns: 1fr;
-    padding: 45px 7%;
+    padding: 40px 7%;
   }
 
-  .hero-content {
+  .page-hero-content {
     text-align: center;
   }
 
-  .hero-description {
+  .page-hero p {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .hero-art {
-    min-height: 280px;
+  .hero-visual {
+    min-height: 245px;
   }
 
-  .section-top {
-    display: block;
-  }
-
-  .section-top .section-desc {
-    margin-top: 16px;
-  }
-
-  .features-grid {
+  .course-card {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .feature-card {
-    min-height: 215px;
+  .course-art {
+    min-height: 250px;
   }
 
-  .course-content {
-    display: block;
-  }
-
-  .course-button {
-    margin-top: 25px;
+  .course-info {
+    padding: 10px 5px;
   }
 }
 
@@ -671,18 +649,25 @@ footer {
     font-size: 12px;
   }
 
-  .hero-area {
+  .nav-button {
+    display: none;
+  }
+
+  .page-area {
     padding-top: 17px;
   }
 
-  .hero {
+  .page-hero {
     border-radius: 25px;
     padding: 35px 7%;
   }
 
-  .hero h1 {
+  .page-hero h1 {
     font-size: 32px;
-    letter-spacing: -.8px;
+  }
+
+  .page-hero p {
+    font-size: 13px;
   }
 
   .eyebrow {
@@ -690,75 +675,55 @@ footer {
     padding: 8px 12px;
   }
 
-  .hero-description {
-    font-size: 13px;
+  .hero-visual {
+    min-height: 225px;
   }
 
-  .hero-art {
-    min-height: 255px;
+  .visual-circle {
+    width: 190px;
+    height: 190px;
   }
 
-  .art-circle {
-    width: 205px;
-    height: 205px;
+  .visual-card {
+    width: 150px;
+    height: 120px;
   }
 
-  .art-card {
-    width: 165px;
-    height: 130px;
+  .visual-card strong {
+    font-size: 24px;
   }
 
-  .art-card strong {
-    font-size: 27px;
+  .course-intro {
+    padding-top: 45px;
   }
 
-  .art-small-card {
-    right: 0;
-    bottom: 22px;
-    font-size: 11px;
-    padding: 11px 13px;
+  .course-card {
+    padding: 15px;
+    border-radius: 23px;
+    margin-bottom: 50px;
   }
 
-  .art-star {
-    right: 0;
-    top: 15px;
+  .course-art {
+    min-height: 220px;
   }
 
-  .art-dot {
-    left: 0;
-    bottom: 22px;
+  .course-art-card {
+    width: 160px;
+    height: 125px;
   }
 
-  section {
-    padding: 70px 0;
+  .course-info h2 {
+    font-size: 21px;
   }
 
-  .features-section {
-    border-radius: 25px;
-    margin-top: 35px;
+  .bottom-banner {
+    padding: 30px 23px;
+    border-radius: 23px;
+    margin-bottom: 60px;
   }
 
-  .feature-card {
-    padding: 24px;
-  }
-
-  .course-section {
-    padding: 42px 25px;
-    border-radius: 25px;
-  }
-
-  .course-button {
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .social-links {
-    gap: 10px;
-  }
-
-  .social-links a {
-    min-width: 120px;
-    padding: 13px 18px;
+  .banner-content h2 {
+    font-size: 21px;
   }
 
   .footer-inner {
@@ -788,11 +753,14 @@ footer {
     transform: none;
   }
 
-  .art-circle,
-  .art-card,
-  .art-star,
-  .art-dot,
-  .art-small-card {
+  .visual-circle,
+  .visual-card,
+  .visual-star,
+  .visual-bubble,
+  .course-art::before,
+  .course-art-card,
+  .course-art-star,
+  .bottom-banner::after {
     animation: none;
   }
 }
@@ -807,140 +775,104 @@ footer {
 
     <nav class="nav-links" aria-label="منوی اصلی">
       <a href="index.html">خانه</a>
-      <a href="courses.html">دوره‌ها</a>
+      <a href="courses.html" class="active" aria-current="page">دوره‌ها</a>
     </nav>
+
+    <a class="nav-button" href="index.html">صفحه اصلی</a>
   </div>
 </header>
 
 <main>
 
-<div class="container hero-area">
-  <div class="hero">
+<div class="container page-area">
 
-    <div class="hero-content">
+  <section class="page-hero" aria-labelledby="page-title">
+
+    <div class="page-hero-content">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
-        مسیر تازه‌ای برای یادگیری زبان
+        مسیر یادگیری تو از اینجا شروع می‌شود
       </div>
 
-      <h1>
-        یادگیری زبان انگلیسی<br>
-        <span>ساده و کاربردی</span>
+      <h1 id="page-title">
+        دوره‌های آموزشی<br>
+        <span>دیکالینگو</span>
       </h1>
 
-      <p class="hero-description">
-        یادگیری ساده، کاربردی و هدفمند زبان انگلیسی با دیکالینگو
+      <p>
+        دوره‌های زبان انگلیسی با رویکردی ساده، کاربردی و هدفمند.
+        به‌زودی جزئیات برنامه‌های آموزشی دیکالینگو را اینجا خواهی دید.
       </p>
     </div>
 
-    <div class="hero-art" aria-hidden="true">
-      <div class="art-circle"></div>
-      <div class="art-star">✳</div>
-      <div class="art-dot"></div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-circle"></div>
+      <div class="visual-star">✳</div>
+      <div class="visual-bubble"></div>
 
-      <div class="art-card">
+      <div class="visual-card">
         <strong>دیکالینگو</strong>
-        <small>آموزش زبان انگلیسی</small>
-        <div class="art-line"></div>
+        <small>مسیر یادگیری زبان</small>
+        <div></div>
       </div>
-
-      <div class="art-small-card">یاد بگیر و پیشرفت کن</div>
     </div>
 
-  </div>
-</div>
+  </section>
 
-<section class="features-section" aria-labelledby="features-title">
-  <div class="container">
+  <nav class="breadcrumb" aria-label="مسیر صفحه">
+    <a href="index.html">خانه</a>
+    <span aria-hidden="true">←</span>
+    <span class="current" aria-current="page">دوره‌ها</span>
+  </nav>
 
-    <div class="section-top reveal">
-      <div>
-        <div class="section-label">مزیت‌های دیکالینگو</div>
-        <h2 class="section-title" id="features-title">چرا دیکالینگو؟</h2>
+  <section class="course-intro reveal" aria-labelledby="courses-title">
+    <div class="section-label">برنامه‌های آموزشی</div>
+    <h2 class="section-title" id="courses-title">دوره‌های زبان انگلیسی</h2>
+    <p class="section-desc">
+      در دیکالینگو تلاش می‌کنیم مسیر یادگیری زبان انگلیسی را
+      منظم، قابل‌فهم و کاربردی طراحی کنیم.
+    </p>
+  </section>
+
+  <article class="course-card reveal" aria-labelledby="course-card-title">
+
+    <div class="course-art" aria-hidden="true">
+      <div class="course-art-star">✦</div>
+      <div class="course-art-card">
+        <strong>دیکالینگو</strong>
+        <small>دوره‌های زبان انگلیسی</small>
       </div>
+    </div>
 
-      <p class="section-desc">
-        یادگیری زبان می‌تواند ساده‌تر، کاربردی‌تر و لذت‌بخش‌تر باشد.
-        ما می‌خواهیم این مسیر را برای زبان‌آموزان قابل‌فهم‌تر کنیم.
+    <div class="course-info">
+      <span class="status">به‌زودی</span>
+
+      <h2 id="course-card-title">دوره‌های زبان انگلیسی</h2>
+
+      <p>
+        دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.
+        اطلاعات مربوط به محتوای دوره‌ها و نحوه ثبت‌نام
+        پس از آماده شدن در همین صفحه منتشر می‌شود.
       </p>
-    </div>
 
-    <div class="features-grid">
-
-      <article class="feature-card peach reveal">
-        <div class="feature-number">۰۱</div>
-        <h3>آموزش قابل‌فهم</h3>
-        <p>مفاهیم را ساده و مرحله‌به‌مرحله یاد بگیر.</p>
-        <div class="feature-decoration"></div>
-      </article>
-
-      <article class="feature-card mint reveal">
-        <div class="feature-number">۰۲</div>
-        <h3>تمرین کاربردی</h3>
-        <p>دانسته‌هایت را به مهارتی قابل استفاده تبدیل کن.</p>
-        <div class="feature-decoration"></div>
-      </article>
-
-      <article class="feature-card lavender reveal">
-        <div class="feature-number">۰۳</div>
-        <h3>پیشرفت پیوسته</h3>
-        <p>با هدف‌های مشخص مسیر یادگیری را ادامه بده.</p>
-        <div class="feature-decoration"></div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="about-title">
-  <div class="container">
-    <div class="about-layout reveal">
-      <div class="section-label">آشنایی با دیکالینگو</div>
-      <h2 class="section-title" id="about-title">درباره دیکالینگو</h2>
-      <p class="section-desc">
-        یک برند آموزشی در حوزه زبان انگلیسی؛ با هدف ایجاد تجربه‌ای
-        دوستانه، منظم و کاربردی برای زبان‌آموزان.
-      </p>
-    </div>
-  </div>
-</section>
-
-<div class="container">
-  <section class="course-section" aria-labelledby="course-promo-title">
-    <div class="course-content reveal">
-      <div>
-        <div class="section-label">برنامه‌های آموزشی</div>
-        <h2 class="section-title" id="course-promo-title">دوره‌های آموزشی</h2>
-        <p class="section-desc">
-          دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.
-        </p>
+      <div class="note">
+        برای اطلاع از تازه‌ترین خبرها، شبکه‌های اجتماعی دیکالینگو را دنبال کن.
       </div>
+    </div>
 
-      <a href="courses.html" class="course-button">
-        مشاهده صفحه دوره‌ها ←
-      </a>
+  </article>
+
+  <section class="bottom-banner reveal" aria-labelledby="banner-title">
+    <div class="banner-content">
+      <h2 id="banner-title">همراه دیکالینگو باش!</h2>
+      <p>
+        برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو
+        می‌توانی از صفحه اصلی وارد شبکه‌های اجتماعی ما شوی.
+      </p>
     </div>
   </section>
+
 </div>
-
-<section class="social-section" aria-labelledby="social-title">
-  <div class="container reveal">
-
-    <div class="section-label">همراه دیکالینگو</div>
-    <h2 class="section-title" id="social-title">دیکالینگو در شبکه‌های اجتماعی</h2>
-
-    <p class="section-desc">
-      برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو همراه ما باش.
-    </p>
-
-    <div class="social-links">
-      <a href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">اینستاگرام</a>
-      <a href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">تلگرام</a>
-      <a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">یوتیوب</a>
-    </div>
-
-  </div>
-</section>
 
 </main>
 
