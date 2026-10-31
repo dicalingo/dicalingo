@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -33,7 +32,10 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
 
 body {
   font-family: 'Vazirmatn', sans-serif;
@@ -52,7 +54,9 @@ a {
   margin: auto;
 }
 
-button, a { font-family: inherit; }
+button, a {
+  font-family: inherit;
+}
 
 /* HEADER */
 
@@ -70,6 +74,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .logo {
@@ -77,6 +82,7 @@ header {
   font-weight: 900;
   color: var(--navy);
   letter-spacing: -1px;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -88,27 +94,12 @@ header {
 }
 
 .nav-links a {
-  transition: .2s;
+  transition: color .2s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
   color: var(--orange);
-}
-
-.nav-button {
-  background: var(--navy);
-  color: white;
-  padding: 12px 23px;
-  border-radius: 13px;
-  font-size: 13px;
-  box-shadow: 0 5px 0 #0D1020;
-  transition: .2s;
-}
-
-.nav-button:hover {
-  background: var(--orange);
-  box-shadow: 0 5px 0 #C94400;
-  transform: translateY(-2px);
 }
 
 /* HERO */
@@ -150,6 +141,7 @@ header {
 .eyebrow-dot {
   width: 8px;
   height: 8px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: var(--orange);
 }
@@ -178,6 +170,7 @@ header {
 .primary-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   margin-top: 28px;
   padding: 14px 25px;
@@ -187,7 +180,7 @@ header {
   font-size: 14px;
   font-weight: 700;
   box-shadow: 0 6px 0 #D94700;
-  transition: .2s;
+  transition: transform .2s, box-shadow .2s;
 }
 
 .primary-button:hover {
@@ -242,7 +235,6 @@ header {
   font-size: 12px;
   margin-top: 8px;
   font-weight: 700;
-  direction: ltr;
 }
 
 .art-card .art-line {
@@ -287,45 +279,6 @@ header {
   font-weight: 800;
 }
 
-/* MINI INTRO */
-
-.mini-intro {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 25px;
-}
-
-.mini-card {
-  background: white;
-  border: 1px solid #F0E8E2;
-  border-radius: 19px;
-  padding: 19px 22px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  box-shadow: 0 5px 0 rgba(23,27,46,.035);
-}
-
-.mini-shape {
-  width: 43px;
-  height: 43px;
-  flex-shrink: 0;
-  border-radius: 14px;
-}
-
-.mini-card strong {
-  font-size: 13px;
-  display: block;
-}
-
-.mini-card small {
-  color: var(--muted);
-  font-size: 11px;
-  display: block;
-  margin-top: 4px;
-}
-
 /* GENERAL SECTIONS */
 
 section {
@@ -344,6 +297,7 @@ section {
   color: var(--navy);
   font-weight: 900;
   letter-spacing: -.7px;
+  line-height: 1.7;
 }
 
 .section-desc {
@@ -372,7 +326,7 @@ section {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -382,16 +336,24 @@ section {
   padding: 27px;
   position: relative;
   overflow: hidden;
-  transition: .3s;
+  transition: transform .3s;
 }
 
 .feature-card:hover {
   transform: translateY(-7px);
 }
 
-.feature-card.peach { background: var(--peach); }
-.feature-card.mint { background: var(--mint); }
-.feature-card.lavender { background: var(--lavender); }
+.feature-card.peach {
+  background: var(--peach);
+}
+
+.feature-card.mint {
+  background: var(--mint);
+}
+
+.feature-card.lavender {
+  background: var(--lavender);
+}
 
 .feature-number {
   width: 43px;
@@ -404,7 +366,6 @@ section {
   color: var(--orange);
   font-size: 13px;
   font-weight: 900;
-  direction: ltr;
   box-shadow: 0 4px 0 rgba(23,27,46,.05);
 }
 
@@ -430,73 +391,20 @@ section {
   left: -25px;
   bottom: -35px;
   background: rgba(255,255,255,.38);
+  pointer-events: none;
 }
 
 /* ABOUT */
 
 .about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 65px;
-  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.about-art {
-  background: var(--blue);
-  border-radius: 30px;
-  min-height: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.about-orbit {
-  width: 205px;
-  height: 205px;
-  border-radius: 50%;
-  border: 2px dashed rgba(23,27,46,.22);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-20deg);
-}
-
-.about-center {
-  width: 125px;
-  height: 125px;
-  border-radius: 35px;
-  background: var(--orange);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-  font-weight: 900;
-  box-shadow: 0 9px 0 #D94700;
-  transform: rotate(20deg);
-}
-
-.about-bubble {
-  position: absolute;
-  width: 55px;
-  height: 55px;
-  background: var(--yellow);
-  border-radius: 19px;
-  top: 38px;
-  right: 55px;
-  transform: rotate(15deg);
-  box-shadow: 0 5px 0 rgba(23,27,46,.07);
-}
-
-.about-bubble.two {
-  top: auto;
-  right: auto;
-  bottom: 40px;
-  left: 55px;
-  background: var(--mint);
-  border-radius: 50%;
+.about-layout .section-desc {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* COURSE PROMO */
@@ -519,6 +427,7 @@ section {
   border: 40px solid rgba(255,90,0,.12);
   left: -70px;
   top: -90px;
+  pointer-events: none;
 }
 
 .course-content {
@@ -530,9 +439,13 @@ section {
   gap: 30px;
 }
 
-.course-section .section-title { color: white; }
+.course-section .section-title {
+  color: white;
+}
 
-.course-section .section-desc { color: #C3C6D1; }
+.course-section .section-desc {
+  color: #C3C6D1;
+}
 
 .course-button {
   display: inline-block;
@@ -544,7 +457,8 @@ section {
   box-shadow: 0 5px 0 #C94400;
   font-size: 13px;
   font-weight: 700;
-  transition: .2s;
+  transition: transform .2s;
+  text-align: center;
 }
 
 .course-button:hover {
@@ -577,12 +491,19 @@ section {
   font-size: 13px;
   font-weight: 700;
   box-shadow: 0 5px 0 rgba(23,27,46,.04);
-  transition: .2s;
+  transition: background .2s, transform .2s;
 }
 
 .social-links a:hover {
   background: var(--peach);
   transform: translateY(-4px);
+}
+
+/* KEYBOARD ACCESSIBILITY */
+
+a:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 4px;
 }
 
 /* FOOTER */
@@ -608,6 +529,7 @@ footer {
 .footer-inner p {
   font-size: 11px;
   color: #B7BAC6;
+  line-height: 2;
 }
 
 /* ANIMATION */
@@ -615,7 +537,7 @@ footer {
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: .7s ease;
+  transition: opacity .7s ease, transform .7s ease;
 }
 
 .reveal.visible {
@@ -631,19 +553,33 @@ footer {
     padding: 45px 7%;
   }
 
-  .hero-art { min-height: 280px; }
+  .hero-content {
+    text-align: center;
+  }
 
-  .mini-intro { grid-template-columns: 1fr; }
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-art {
+    min-height: 280px;
+  }
 
   .section-top {
     display: block;
   }
 
-  .features-grid { grid-template-columns: 1fr; }
+  .section-top .section-desc {
+    margin-top: 16px;
+  }
 
-  .about-layout {
+  .features-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+  }
+
+  .feature-card {
+    min-height: 215px;
   }
 
   .course-content {
@@ -656,31 +592,53 @@ footer {
 }
 
 @media(max-width: 520px) {
-  .container { width: 92%; }
+  .container {
+    width: 92%;
+  }
 
-  header { padding: 15px 0; }
+  header {
+    padding: 15px 0;
+  }
 
-  .logo { font-size: 22px; }
+  .nav {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
 
   .nav-links {
     gap: 15px;
     font-size: 12px;
   }
 
-  .nav-button { display: none; }
-
-  .hero-area { padding-top: 17px; }
+  .hero-area {
+    padding-top: 17px;
+  }
 
   .hero {
     border-radius: 25px;
     padding: 35px 7%;
   }
 
-  .hero h1 { font-size: 35px; }
+  .hero h1 {
+    font-size: 32px;
+    letter-spacing: -.8px;
+  }
 
-  .hero-description { font-size: 13px; }
+  .eyebrow {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
 
-  .hero-art { min-height: 255px; }
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-art {
+    min-height: 255px;
+  }
 
   .art-circle {
     width: 205px;
@@ -692,13 +650,38 @@ footer {
     height: 130px;
   }
 
-  .art-card strong { font-size: 27px; }
+  .art-card strong {
+    font-size: 27px;
+  }
 
-  section { padding: 70px 0; }
+  .art-small-card {
+    right: 0;
+    bottom: 22px;
+    font-size: 11px;
+    padding: 11px 13px;
+  }
+
+  .art-star {
+    right: 0;
+    top: 15px;
+  }
+
+  .art-dot {
+    left: 0;
+    bottom: 22px;
+  }
+
+  section {
+    padding: 70px 0;
+  }
 
   .features-section {
     border-radius: 25px;
     margin-top: 35px;
+  }
+
+  .feature-card {
+    padding: 24px;
   }
 
   .course-section {
@@ -706,9 +689,45 @@ footer {
     border-radius: 25px;
   }
 
+  .course-button {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-links a {
+    min-width: 120px;
+    padding: 13px 18px;
+  }
+
   .footer-inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* REDUCE MOTION */
+
+@media(prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>
@@ -720,12 +739,10 @@ footer {
   <div class="container nav">
     <a class="logo" href="index.html">دیکالینگو</a>
 
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="منوی اصلی">
       <a href="index.html">خانه</a>
       <a href="courses.html">دوره‌ها</a>
     </nav>
-
-    <a class="nav-button" href="courses.html">مشاهده دوره‌ها</a>
   </div>
 </header>
 
@@ -751,60 +768,34 @@ footer {
 
       <a href="courses.html" class="primary-button">
         مشاهده دوره‌ها
-        <span>←</span>
+        <span aria-hidden="true">←</span>
       </a>
     </div>
 
-    <div class="hero-art">
+    <div class="hero-art" aria-hidden="true">
       <div class="art-circle"></div>
       <div class="art-star">✳</div>
       <div class="art-dot"></div>
 
       <div class="art-card">
-        <strong>DICALINGO</strong>
-        <small>ENGLISH LEARNING</small>
+        <strong>دیکالینگو</strong>
+        <small>آموزش زبان انگلیسی</small>
         <div class="art-line"></div>
       </div>
 
-      <div class="art-small-card">LEARN & GROW</div>
+      <div class="art-small-card">یاد بگیر و پیشرفت کن</div>
     </div>
 
-  </div>
-
-  <div class="mini-intro">
-    <div class="mini-card">
-      <div class="mini-shape" style="background:#FFE2D2"></div>
-      <div>
-        <strong>آموزش قابل‌فهم</strong>
-        <small>یادگیری مرحله‌به‌مرحله</small>
-      </div>
-    </div>
-
-    <div class="mini-card">
-      <div class="mini-shape" style="background:#DDF2E7"></div>
-      <div>
-        <strong>تمرین کاربردی</strong>
-        <small>استفاده واقعی از زبان</small>
-      </div>
-    </div>
-
-    <div class="mini-card">
-      <div class="mini-shape" style="background:#EAE3FA"></div>
-      <div>
-        <strong>پیشرفت پیوسته</strong>
-        <small>حرکت منظم در مسیر یادگیری</small>
-      </div>
-    </div>
   </div>
 </div>
 
-<section class="features-section">
+<section class="features-section" aria-labelledby="features-title">
   <div class="container">
 
     <div class="section-top reveal">
       <div>
-        <div class="section-label">WHY DICALINGO?</div>
-        <h2 class="section-title">چرا دیکالینگو؟</h2>
+        <div class="section-label">مزیت‌های دیکالینگو</div>
+        <h2 class="section-title" id="features-title">چرا دیکالینگو؟</h2>
       </div>
 
       <p class="section-desc">
@@ -816,21 +807,21 @@ footer {
     <div class="features-grid">
 
       <article class="feature-card peach reveal">
-        <div class="feature-number">01</div>
+        <div class="feature-number">۰۱</div>
         <h3>آموزش قابل‌فهم</h3>
         <p>مفاهیم را ساده و مرحله‌به‌مرحله یاد بگیر.</p>
         <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-card mint reveal">
-        <div class="feature-number">02</div>
+        <div class="feature-number">۰۲</div>
         <h3>تمرین کاربردی</h3>
         <p>دانسته‌هایت را به مهارتی قابل استفاده تبدیل کن.</p>
         <div class="feature-decoration"></div>
       </article>
 
       <article class="feature-card lavender reveal">
-        <div class="feature-number">03</div>
+        <div class="feature-number">۰۳</div>
         <h3>پیشرفت پیوسته</h3>
         <p>با هدف‌های مشخص مسیر یادگیری را ادامه بده.</p>
         <div class="feature-decoration"></div>
@@ -840,35 +831,25 @@ footer {
   </div>
 </section>
 
-<section>
-  <div class="container about-layout">
-
-    <div class="about-art reveal">
-      <div class="about-orbit">
-        <div class="about-center">DICA</div>
-      </div>
-      <div class="about-bubble"></div>
-      <div class="about-bubble two"></div>
-    </div>
-
-    <div class="reveal">
-      <div class="section-label">ABOUT DICALINGO</div>
-      <h2 class="section-title">درباره دیکالینگو</h2>
+<section aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-layout reveal">
+      <div class="section-label">آشنایی با دیکالینگو</div>
+      <h2 class="section-title" id="about-title">درباره دیکالینگو</h2>
       <p class="section-desc">
         یک برند آموزشی در حوزه زبان انگلیسی؛ با هدف ایجاد تجربه‌ای
         دوستانه، منظم و کاربردی برای زبان‌آموزان.
       </p>
     </div>
-
   </div>
 </section>
 
 <div class="container">
-  <section class="course-section">
+  <section class="course-section" aria-labelledby="course-promo-title">
     <div class="course-content reveal">
       <div>
-        <div class="section-label">LEARNING PROGRAMS</div>
-        <h2 class="section-title">دوره‌های آموزشی</h2>
+        <div class="section-label">برنامه‌های آموزشی</div>
+        <h2 class="section-title" id="course-promo-title">دوره‌های آموزشی</h2>
         <p class="section-desc">
           دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.
         </p>
@@ -881,20 +862,20 @@ footer {
   </section>
 </div>
 
-<section class="social-section">
+<section class="social-section" aria-labelledby="social-title">
   <div class="container reveal">
 
-    <div class="section-label">FOLLOW DICALINGO</div>
-    <h2 class="section-title">دیکالینگو در شبکه‌های اجتماعی</h2>
+    <div class="section-label">همراه دیکالینگو</div>
+    <h2 class="section-title" id="social-title">دیکالینگو در شبکه‌های اجتماعی</h2>
 
     <p class="section-desc">
       برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو همراه ما باش.
     </p>
 
     <div class="social-links">
-      <a href="https://instagram.com/dicalingo" target="_blank" rel="noopener">اینستاگرام</a>
-      <a href="https://t.me/dicalingo" target="_blank" rel="noopener">تلگرام</a>
-      <a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener">یوتیوب</a>
+      <a href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">اینستاگرام</a>
+      <a href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">تلگرام</a>
+      <a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">یوتیوب</a>
     </div>
 
   </div>
@@ -905,23 +886,29 @@ footer {
 <footer>
   <div class="container footer-inner">
     <div class="footer-logo">دیکالینگو</div>
-    <p>© 2026 دیکالینگو — تمامی حقوق محفوظ است.</p>
+    <p>© ۲۰۲۶ دیکالینگو — تمامی حقوق محفوظ است.</p>
   </div>
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(element => {
-  observer.observe(element);
-});
+  document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+  });
+} else {
+  document.querySelectorAll('.reveal').forEach(element => {
+    element.classList.add('visible');
+  });
+}
 </script>
 
 </body>
