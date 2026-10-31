@@ -47,6 +47,11 @@ a {
   color: inherit;
   text-decoration: none;
   font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -465,9 +470,21 @@ header {
   max-width: 650px;
 }
 
-/* ACCESSIBILITY */
+/* TAP HIGHLIGHT AND ACCESSIBILITY */
 
-a:focus-visible {
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+a:focus-visible,
+button:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 4px;
 }
@@ -502,13 +519,16 @@ footer {
 
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity .7s ease, transform .7s ease;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.2,.7,.2,1);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* DECORATIVE FLOAT ANIMATIONS */
@@ -751,6 +771,7 @@ footer {
   .reveal {
     opacity: 1;
     transform: none;
+    will-change: auto;
   }
 
   .visual-circle,
@@ -884,24 +905,32 @@ footer {
 </footer>
 
 <script>
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
+(function () {
+  const revealElements = document.querySelectorAll('.reveal');
+
+  if (!('IntersectionObserver' in window)) {
+    revealElements.forEach(element => {
+      element.classList.add('visible');
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, currentObserver) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        currentObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12 });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -8% 0px'
+  });
 
-  document.querySelectorAll('.reveal').forEach(element => {
+  revealElements.forEach(element => {
     observer.observe(element);
   });
-} else {
-  document.querySelectorAll('.reveal').forEach(element => {
-    element.classList.add('visible');
-  });
-}
+})();
 </script>
 
 </body>
