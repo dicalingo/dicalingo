@@ -2,524 +2,560 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101b35">
-<title>دیکالینگو | یادگیری انگلیسی</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171B2E">
+  <meta name="description" content="دیکالینگو؛ یادگیری ساده، کاربردی و هدفمند زبان انگلیسی.">
+  <title>دیکالینگو | یادگیری زبان انگلیسی</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --navy:#101b35;
-  --navy2:#172746;
-  --orange:#f29a45;
-  --cream:#fbfaf8;
-  --white:#ffffff;
-  --muted:#788398;
-  --border:rgba(16,27,53,.09);
-  --shadow:0 18px 55px rgba(16,27,53,.09);
-}
+  <style>
+    :root {
+      --orange: #FF5A00;
+      --navy: #171B2E;
+      --white: #FFFFFF;
+      --soft: #FFF7F2;
+      --text: #25283A;
+      --muted: #777B89;
+      --border: #ECECF0;
+      --shadow: 0 12px 35px rgba(23, 27, 46, 0.07);
+    }
 
-*{box-sizing:border-box;margin:0;padding:0}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html{
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
-}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-body{
-  font-family:Vazirmatn,Tahoma,sans-serif;
-  background:var(--cream);
-  color:var(--navy);
-  line-height:2;
-  overflow-x:hidden;
-}
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
 
-a{ -webkit-tap-highlight-color:transparent }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-::selection{
-  background:var(--orange);
-  color:var(--navy);
-}
+    .progress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 3px;
+      width: 0;
+      background: var(--orange);
+      z-index: 1000;
+    }
 
-/* Scroll progress */
-.progress{
-  position:fixed;
-  top:0;
-  right:0;
-  width:0%;
-  height:3px;
-  background:var(--orange);
-  z-index:1000;
-}
+    /* Header */
 
-/* Header */
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(16,27,53,.94);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(23, 27, 46, 0.07);
+    }
 
-nav{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+    .navbar {
+      max-width: 1150px;
+      margin: auto;
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.logo{
-  font-size:29px;
-  font-weight:900;
-  color:white;
-  letter-spacing:-1px;
-}
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -1px;
+    }
 
-.logo span{color:var(--orange)}
+    .nav-contact {
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: default;
+    }
 
-.nav-contact{
-  color:white;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:700;
-  padding:8px 17px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:9px;
-  cursor:default;
-}
+    /* Hero */
 
-/* Hero */
-.hero{
-  min-height:650px;
-  padding:100px 7% 110px;
-  background:
-    radial-gradient(ellipse at 80% 20%,rgba(242,154,69,.16),transparent 35%),
-    radial-gradient(ellipse at 10% 90%,rgba(64,105,168,.2),transparent 35%),
-    linear-gradient(135deg,#101b35,#172746);
-  color:white;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
+    .hero {
+      min-height: 510px;
+      padding: 100px 24px 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 15% 25%, rgba(255, 90, 0, 0.10), transparent 28%),
+        radial-gradient(circle at 85% 75%, rgba(255, 90, 0, 0.08), transparent 30%),
+        var(--white);
+    }
 
-.hero::before,
-.hero::after{
-  content:"";
-  position:absolute;
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:50%;
-  width:430px;
-  height:430px;
-  animation:float 12s ease-in-out infinite;
-}
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+    }
 
-.hero::before{top:-230px;right:-100px}
-.hero::after{bottom:-300px;left:-100px;animation-delay:-5s}
+    .hero-tag {
+      display: inline-block;
+      color: var(--orange);
+      background: var(--soft);
+      border: 1px solid rgba(255, 90, 0, 0.15);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-  animation:heroIn 1s ease both;
-}
+    .hero h1 {
+      color: var(--navy);
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.6;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
 
-.hero-tag{
-  display:inline-block;
-  color:var(--orange);
-  border:1px solid rgba(242,154,69,.35);
-  background:rgba(242,154,69,.08);
-  padding:5px 20px;
-  border-radius:50px;
-  font-size:14px;
-  margin-bottom:25px;
-}
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2.1;
+    }
 
-.hero h1{
-  font-size:clamp(38px,6vw,66px);
-  font-weight:900;
-  line-height:1.65;
-  letter-spacing:-2px;
-}
+    .main-button {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 12px 32px;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 12px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 22px rgba(255, 90, 0, 0.22);
+    }
 
-.hero h1 span{
-  color:var(--orange);
-  position:relative;
-}
+    .main-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(255, 90, 0, 0.30);
+    }
 
-.hero p{
-  color:#cbd4e3;
-  font-size:17px;
-  margin-top:15px;
-}
+    /* General sections */
 
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background:var(--orange);
-  color:var(--navy);
-  text-decoration:none;
-  padding:13px 32px;
-  border-radius:11px;
-  font-weight:900;
-  margin-top:30px;
-  box-shadow:0 9px 25px rgba(242,154,69,.2);
-  transition:.3s;
-}
+    section {
+      padding: 85px 24px;
+    }
 
-.btn:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px rgba(242,154,69,.35);
-}
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
 
-/* Shared sections */
-section{
-  padding:95px 7%;
-  text-align:center;
-}
+    .section-title {
+      text-align: center;
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 48px;
+    }
 
-.section-inner{
-  max-width:1150px;
-  margin:auto;
-}
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 4px;
+      border-radius: 5px;
+      background: var(--orange);
+      margin: 13px auto 0;
+    }
 
-.section-heading{
-  font-size:clamp(27px,4vw,36px);
-  font-weight:900;
-  margin-bottom:12px;
-  letter-spacing:-1px;
-}
+    /* Why Dicalingo */
 
-.heading-line{
-  width:55px;
-  height:4px;
-  background:var(--orange);
-  border-radius:10px;
-  margin:18px auto 38px;
-}
+    .why {
+      background: var(--soft);
+    }
 
-/* Cards */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
-  margin-top:45px;
-}
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
 
-.card{
-  position:relative;
-  background:white;
-  border:1px solid var(--border);
-  border-radius:19px;
-  padding:35px 25px;
-  box-shadow:0 5px 20px rgba(16,27,53,.025);
-  transition:transform .35s,box-shadow .35s,border-color .35s;
-  overflow:hidden;
-}
+    .feature-card {
+      background: var(--white);
+      padding: 32px 24px;
+      border: 1px solid rgba(23, 27, 46, 0.05);
+      border-radius: 18px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
 
-.card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  right:0;
-  width:0;
-  height:4px;
-  background:var(--orange);
-  transition:width .4s;
-}
+    .feature-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+      border-color: rgba(255, 90, 0, 0.25);
+    }
 
-.card:hover{
-  transform:translateY(-9px);
-  box-shadow:var(--shadow);
-  border-color:rgba(242,154,69,.35);
-}
+    .feature-card h3 {
+      color: var(--navy);
+      font-size: 19px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
 
-.card:hover::before{width:100%}
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
 
-.card h3{
-  font-size:19px;
-  font-weight:900;
-  margin-bottom:12px;
-}
+    /* About */
 
-.card p{
-  color:var(--muted);
-  font-size:14px;
-}
+    .about {
+      text-align: center;
+      background: var(--white);
+    }
 
-/* About */
-.about{
-  background:
-    radial-gradient(circle at 10% 20%,rgba(242,154,69,.07),transparent 30%),
-    #f1f0ec;
-}
+    .about p {
+      max-width: 720px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2.2;
+    }
 
-.about-text{
-  max-width:750px;
-  margin:auto;
-  font-size:17px;
-  color:#5d687c;
-  line-height:2.5;
-}
+    /* Courses */
 
-/* Courses */
-.course-card{
-  max-width:520px;
-  margin:35px auto 0;
-  border-radius:22px;
-  background:white;
-  border:1px solid var(--border);
-  padding:40px 25px;
-  box-shadow:var(--shadow);
-  transition:.3s;
-}
+    .courses {
+      background: var(--soft);
+    }
 
-.course-card:hover{transform:translateY(-6px)}
+    .course-card {
+      max-width: 650px;
+      margin: auto;
+      padding: 38px 25px;
+      text-align: center;
+      background: var(--white);
+      border: 1px solid rgba(23, 27, 46, 0.06);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
 
-.coming{
-  display:inline-block;
-  color:#d47b2e;
-  background:#fff3e7;
-  padding:4px 18px;
-  border-radius:50px;
-  margin-top:14px;
-  font-weight:800;
-  font-size:14px;
-}
+    .course-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
 
-/* Social */
-.social{
-  background:#f1f0ec;
-  position:relative;
-  overflow:hidden;
-}
+    .course-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-.social-links{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:17px;
-  margin-top:35px;
-}
+    .coming-soon {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 5px 17px;
+      color: var(--orange);
+      background: var(--soft);
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-.social-link{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-width:155px;
-  padding:14px 25px;
-  border-radius:13px;
-  background:white;
-  color:var(--navy);
-  border:1px solid var(--border);
-  text-decoration:none;
-  font-weight:800;
-  transition:.3s;
-}
+    /* Social media */
 
-.social-link:hover{
-  background:var(--navy);
-  color:white;
-  transform:translateY(-6px);
-  box-shadow:0 12px 28px rgba(16,27,53,.13);
-}
+    .social {
+      background: var(--white);
+      text-align: center;
+    }
 
-.social-link span{
-  margin-left:9px;
-  color:var(--orange);
-  font-size:19px;
-}
+    .social-description {
+      color: var(--muted);
+      margin: -25px auto 35px;
+      font-size: 15px;
+    }
 
-/* Footer */
-footer{
-  background:#0b1428;
-  color:#abb6c9;
-  text-align:center;
-  padding:28px 15px;
-  font-size:13px;
-}
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
 
-.footer-logo{
-  color:white;
-  font-size:21px;
-  font-weight:900;
-  margin-bottom:5px;
-}
+    .social-link {
+      min-width: 145px;
+      padding: 13px 25px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+      color: var(--navy);
+      font-weight: 600;
+      background: var(--white);
+      transition: 0.25s ease;
+    }
 
-/* Reveal animations */
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity .8s ease,transform .8s ease;
-}
+    .social-link:hover {
+      color: var(--orange);
+      border-color: var(--orange);
+      background: var(--soft);
+      transform: translateY(-4px);
+    }
 
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
+    /* Footer */
 
-@keyframes heroIn{
-  from{opacity:0;transform:translateY(25px)}
-  to{opacity:1;transform:translateY(0)}
-}
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 35px 20px;
+    }
 
-@keyframes float{
-  0%,100%{transform:translate(0,0)}
-  50%{transform:translate(20px,-25px)}
-}
+    .footer-logo {
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
 
-/* Responsive */
-@media(max-width:760px){
-  .hero{min-height:570px;padding:85px 7%}
-  .hero h1{letter-spacing:-1px}
-  section{padding:70px 6%}
-  .cards{grid-template-columns:1fr;gap:16px}
-  .card{padding:28px 22px}
-  .social-link{min-width:135px}
-}
+    footer p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 13px;
+    }
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation:none!important;
-    transition:none!important;
-    scroll-behavior:auto!important;
-  }
-  .reveal{opacity:1;transform:none}
-}
-</style>
+    /* Animations */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 700px) {
+      .navbar {
+        padding: 13px 18px;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .hero {
+        min-height: 440px;
+        padding: 80px 20px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      section {
+        padding: 65px 20px;
+      }
+
+      .section-title {
+        font-size: 25px;
+        margin-bottom: 35px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .feature-card {
+        padding: 27px 20px;
+      }
+
+      .social-links {
+        flex-direction: column;
+      }
+
+      .social-link {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="progress" id="progress"></div>
+  <div class="progress" id="progress"></div>
 
-<header>
-<nav>
-<div class="logo">دیکالینگو<span>.</span></div>
-<a class="nav-contact" aria-disabled="true">ارتباط با ما</a>
-</nav>
-</header>
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">دیکالینگو</a>
+      <span class="nav-contact">ارتباط با ما</span>
+    </nav>
+  </header>
 
-<main>
+  <main>
 
-<div class="hero">
-<div class="hero-content">
-<p class="hero-tag">مسیر تازه‌ای برای یادگیری زبان</p>
-<h1>انگلیسی را<br><span>با اطمینان</span> یاد بگیر.</h1>
-<p>یادگیری ساده، کاربردی و هدفمند زبان انگلیسی با دیکالینگو</p>
-<a class="btn" href="#courses">مشاهده دوره‌ها</a>
-</div>
-</div>
+    <section class="hero">
+      <div class="hero-content reveal">
+        <span class="hero-tag">مسیر تازه‌ای برای یادگیری زبان</span>
+        <h1>یادگیری زبان انگلیسی با دیکالینگو</h1>
+        <p>
+          یادگیری ساده، کاربردی و هدفمند زبان انگلیسی با دیکالینگو
+        </p>
+        <a href="#courses" class="main-button">مشاهده دوره‌ها</a>
+      </div>
+    </section>
 
-<section>
-<div class="section-inner">
-<h2 class="section-heading reveal">چرا دیکالینگو؟</h2>
-<div class="heading-line reveal"></div>
+    <section class="why">
+      <div class="container">
+        <h2 class="section-title reveal">چرا دیکالینگو؟</h2>
 
-<div class="cards">
-<div class="card reveal">
-<h3>✦ آموزش قابل‌فهم</h3>
-<p>مفاهیم را ساده و مرحله‌به‌مرحله یاد بگیر.</p>
-</div>
+        <div class="features">
+          <article class="feature-card reveal">
+            <h3>آموزش قابل‌فهم</h3>
+            <p>مفاهیم را ساده و مرحله‌به‌مرحله یاد بگیر.</p>
+          </article>
 
-<div class="card reveal">
-<h3>◎ تمرین کاربردی</h3>
-<p>دانسته‌هایت را به مهارتی قابل استفاده تبدیل کن.</p>
-</div>
+          <article class="feature-card reveal">
+            <h3>تمرین کاربردی</h3>
+            <p>دانسته‌هایت را به مهارتی قابل استفاده تبدیل کن.</p>
+          </article>
 
-<div class="card reveal">
-<h3>↗ پیشرفت پیوسته</h3>
-<p>با هدف‌های مشخص مسیر یادگیری را ادامه بده.</p>
-</div>
-</div>
-</div>
-</section>
+          <article class="feature-card reveal">
+            <h3>پیشرفت پیوسته</h3>
+            <p>با هدف‌های مشخص مسیر یادگیری را ادامه بده.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<section class="about">
-<div class="section-inner">
-<h2 class="section-heading reveal">درباره دیکالینگو</h2>
-<div class="heading-line reveal"></div>
-<p class="about-text reveal">
-یک برند آموزشی در حوزه زبان انگلیسی؛ با هدف ایجاد تجربه‌ای دوستانه، منظم و کاربردی برای زبان‌آموزان.
-</p>
-</div>
-</section>
+    <section class="about">
+      <div class="container reveal">
+        <h2 class="section-title">درباره دیکالینگو</h2>
+        <p>
+          یک برند آموزشی در حوزه زبان انگلیسی؛ با هدف ایجاد تجربه‌ای دوستانه، منظم و کاربردی برای زبان‌آموزان.
+        </p>
+      </div>
+    </section>
 
-<section id="courses">
-<div class="section-inner">
-<h2 class="section-heading reveal">دوره‌های آموزشی</h2>
-<div class="heading-line reveal"></div>
+    <section class="courses" id="courses">
+      <div class="container">
+        <h2 class="section-title reveal">دوره‌های آموزشی</h2>
 
-<div class="course-card reveal">
-<h3>دوره‌های زبان انگلیسی</h3>
-<p>دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.</p>
-<span class="coming">به‌زودی</span>
-</div>
-</div>
-</section>
+        <div class="course-card reveal">
+          <h3>دوره‌های زبان انگلیسی</h3>
+          <p>دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.</p>
+          <span class="coming-soon">به‌زودی</span>
+        </div>
+      </div>
+    </section>
 
-<section class="social">
-<div class="section-inner">
-<h2 class="section-heading reveal">دیکالینگو در شبکه‌های اجتماعی</h2>
-<div class="heading-line reveal"></div>
-<p class="reveal">برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو همراه ما باش.</p>
+    <section class="social">
+      <div class="container">
+        <h2 class="section-title reveal">دیکالینگو در شبکه‌های اجتماعی</h2>
 
-<div class="social-links reveal">
-<a class="social-link" href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">
-<span>◎</span> اینستاگرام
-</a>
+        <p class="social-description reveal">
+          برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو همراه ما باش.
+        </p>
 
-<a class="social-link" href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">
-<span>➤</span> تلگرام
-</a>
+        <div class="social-links reveal">
+          <a class="social-link" href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">
+            اینستاگرام
+          </a>
 
-<a class="social-link" href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">
-<span>▶</span> یوتیوب
-</a>
-</div>
-</div>
-</section>
+          <a class="social-link" href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">
+            تلگرام
+          </a>
 
-</main>
+          <a class="social-link" href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">
+            یوتیوب
+          </a>
+        </div>
+      </div>
+    </section>
 
-<footer>
-<div class="footer-logo">دیکالینگو</div>
-© 2026 دیکالینگو — تمامی حقوق محفوظ است.
-</footer>
+  </main>
 
-<script>
-const progress = document.getElementById("progress");
+  <footer>
+    <div class="footer-logo">دیکالینگو</div>
+    <p>© 2026 دیکالینگو — تمامی حقوق محفوظ است.</p>
+  </footer>
 
-window.addEventListener("scroll",()=>{
-  const total = document.documentElement.scrollHeight - window.innerHeight;
-  const current = total > 0 ? (window.scrollY / total) * 100 : 0;
-  progress.style.width = current + "%";
-});
+  <script>
+    // Scroll progress
+    const progress = document.getElementById('progress');
 
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
-      observer.unobserve(entry.target);
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = scrollable > 0
+        ? (window.scrollY / scrollable) * 100
+        : 0;
+
+      progress.style.width = percentage + '%';
     }
-  });
-},{threshold:0.12});
 
-document.querySelectorAll(".reveal").forEach(element=>{
-  observer.observe(element);
-});
-</script>
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add('visible'));
+    }
+  </script>
 
 </body>
 </html>
