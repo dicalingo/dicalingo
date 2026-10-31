@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -32,17 +31,22 @@
   box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
 
 body {
   font-family: 'Vazirmatn', sans-serif;
   color: var(--text);
   background: var(--cream);
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  font-family: inherit;
 }
 
 .container {
@@ -66,6 +70,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .logo {
@@ -73,6 +78,7 @@ header {
   font-weight: 900;
   color: var(--navy);
   letter-spacing: -1px;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -84,7 +90,7 @@ header {
 }
 
 .nav-links a {
-  transition: .2s;
+  transition: color .2s;
 }
 
 .nav-links a:hover,
@@ -99,7 +105,8 @@ header {
   border-radius: 13px;
   font-size: 13px;
   box-shadow: 0 5px 0 #0D1020;
-  transition: .2s;
+  transition: background .2s, box-shadow .2s, transform .2s;
+  white-space: nowrap;
 }
 
 .nav-button:hover {
@@ -122,8 +129,14 @@ header {
   grid-template-columns: 1fr .8fr;
   align-items: center;
   padding: 45px 6%;
+  gap: 25px;
   overflow: hidden;
   position: relative;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .eyebrow {
@@ -142,6 +155,7 @@ header {
 .eyebrow-dot {
   width: 8px;
   height: 8px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: var(--orange);
 }
@@ -212,7 +226,6 @@ header {
   font-size: 11px;
   margin-top: 7px;
   font-weight: 700;
-  direction: ltr;
 }
 
 .visual-card div {
@@ -227,7 +240,7 @@ header {
   position: absolute;
   top: 10px;
   right: 5px;
-  color: var(--yellow);
+  color: var(--orange);
   font-size: 42px;
 }
 
@@ -251,11 +264,16 @@ header {
   margin: 24px 4px;
   font-size: 12px;
   color: var(--muted);
+  flex-wrap: wrap;
 }
 
-.breadcrumb a:hover { color: var(--orange); }
+.breadcrumb a:hover {
+  color: var(--orange);
+}
 
-.breadcrumb span { color: var(--orange); }
+.breadcrumb .current {
+  color: var(--orange);
+}
 
 /* COURSE INTRO */
 
@@ -274,6 +292,7 @@ header {
   font-size: clamp(27px, 3vw, 36px);
   font-weight: 900;
   color: var(--navy);
+  line-height: 1.7;
 }
 
 .section-desc {
@@ -346,7 +365,6 @@ header {
   color: var(--orange);
   margin-top: 7px;
   font-weight: 700;
-  direction: ltr;
 }
 
 .course-art-star {
@@ -359,6 +377,7 @@ header {
 
 .course-info {
   padding: 12px 10px;
+  min-width: 0;
 }
 
 .status {
@@ -376,6 +395,7 @@ header {
   color: var(--navy);
   margin-top: 19px;
   font-weight: 900;
+  line-height: 1.7;
 }
 
 .course-info p {
@@ -392,6 +412,7 @@ header {
   border-radius: 13px;
   color: #6B6570;
   font-size: 12px;
+  line-height: 2;
   border: 1px solid #F0E8E2;
 }
 
@@ -416,6 +437,7 @@ header {
   position: absolute;
   left: -60px;
   top: -80px;
+  pointer-events: none;
 }
 
 .banner-content {
@@ -426,6 +448,7 @@ header {
 .banner-content h2 {
   font-size: 24px;
   font-weight: 900;
+  line-height: 1.8;
 }
 
 .banner-content p {
@@ -433,6 +456,14 @@ header {
   line-height: 2.2;
   color: #C3C6D1;
   margin-top: 10px;
+  max-width: 650px;
+}
+
+/* ACCESSIBILITY */
+
+a:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
 }
 
 /* FOOTER */
@@ -457,6 +488,7 @@ footer {
 
 .footer-inner p {
   font-size: 11px;
+  line-height: 2;
   color: #B7BAC6;
 }
 
@@ -465,7 +497,7 @@ footer {
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: .7s ease;
+  transition: opacity .7s ease, transform .7s ease;
 }
 
 .reveal.visible {
@@ -481,40 +513,84 @@ footer {
     padding: 40px 7%;
   }
 
-  .hero-visual { min-height: 245px; }
+  .page-hero-content {
+    text-align: center;
+  }
+
+  .page-hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-visual {
+    min-height: 245px;
+  }
 
   .course-card {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  .course-art { min-height: 250px; }
+  .course-art {
+    min-height: 250px;
+  }
+
+  .course-info {
+    padding: 10px 5px;
+  }
 }
 
 @media(max-width: 520px) {
-  .container { width: 92%; }
+  .container {
+    width: 92%;
+  }
 
-  header { padding: 15px 0; }
+  header {
+    padding: 15px 0;
+  }
 
-  .logo { font-size: 22px; }
+  .nav {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
 
   .nav-links {
     gap: 15px;
     font-size: 12px;
   }
 
-  .nav-button { display: none; }
+  .nav-button {
+    display: none;
+  }
 
-  .page-area { padding-top: 17px; }
+  .page-area {
+    padding-top: 17px;
+  }
 
   .page-hero {
     border-radius: 25px;
     padding: 35px 7%;
   }
 
-  .page-hero h1 { font-size: 35px; }
+  .page-hero h1 {
+    font-size: 32px;
+  }
 
-  .hero-visual { min-height: 225px; }
+  .page-hero p {
+    font-size: 13px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+
+  .hero-visual {
+    min-height: 225px;
+  }
 
   .visual-circle {
     width: 190px;
@@ -526,27 +602,68 @@ footer {
     height: 120px;
   }
 
-  .course-intro { padding-top: 45px; }
+  .visual-card strong {
+    font-size: 24px;
+  }
+
+  .course-intro {
+    padding-top: 45px;
+  }
 
   .course-card {
     padding: 15px;
     border-radius: 23px;
+    margin-bottom: 50px;
   }
 
-  .course-art { min-height: 220px; }
+  .course-art {
+    min-height: 220px;
+  }
 
-  .course-info { padding: 10px 5px; }
+  .course-art-card {
+    width: 160px;
+    height: 125px;
+  }
 
-  .course-info h2 { font-size: 21px; }
+  .course-info h2 {
+    font-size: 21px;
+  }
 
   .bottom-banner {
     padding: 30px 23px;
     border-radius: 23px;
+    margin-bottom: 60px;
+  }
+
+  .banner-content h2 {
+    font-size: 21px;
   }
 
   .footer-inner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* REDUCE MOTION */
+
+@media(prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 </style>
@@ -558,9 +675,9 @@ footer {
   <div class="container nav">
     <a class="logo" href="index.html">دیکالینگو</a>
 
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="منوی اصلی">
       <a href="index.html">خانه</a>
-      <a href="courses.html" class="active">دوره‌ها</a>
+      <a href="courses.html" class="active" aria-current="page">دوره‌ها</a>
     </nav>
 
     <a class="nav-button" href="index.html">صفحه اصلی</a>
@@ -570,15 +687,16 @@ footer {
 <main>
 
 <div class="container page-area">
-  <div class="page-hero">
 
-    <div>
+  <section class="page-hero" aria-labelledby="page-title">
+
+    <div class="page-hero-content">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
         مسیر یادگیری تو از اینجا شروع می‌شود
       </div>
 
-      <h1>
+      <h1 id="page-title">
         دوره‌های آموزشی<br>
         <span>دیکالینگو</span>
       </h1>
@@ -589,49 +707,49 @@ footer {
       </p>
     </div>
 
-    <div class="hero-visual">
+    <div class="hero-visual" aria-hidden="true">
       <div class="visual-circle"></div>
       <div class="visual-star">✳</div>
       <div class="visual-bubble"></div>
 
       <div class="visual-card">
-        <strong>DICALINGO</strong>
-        <small>LEARNING JOURNEY</small>
+        <strong>دیکالینگو</strong>
+        <small>مسیر یادگیری زبان</small>
         <div></div>
       </div>
     </div>
 
-  </div>
+  </section>
 
-  <div class="breadcrumb">
+  <nav class="breadcrumb" aria-label="مسیر صفحه">
     <a href="index.html">خانه</a>
-    <span>←</span>
-    <span>دوره‌ها</span>
-  </div>
+    <span aria-hidden="true">←</span>
+    <span class="current" aria-current="page">دوره‌ها</span>
+  </nav>
 
-  <section class="course-intro reveal">
-    <div class="section-label">OUR PROGRAMS</div>
-    <h2 class="section-title">دوره‌های زبان انگلیسی</h2>
+  <section class="course-intro reveal" aria-labelledby="courses-title">
+    <div class="section-label">برنامه‌های آموزشی</div>
+    <h2 class="section-title" id="courses-title">دوره‌های زبان انگلیسی</h2>
     <p class="section-desc">
       در دیکالینگو تلاش می‌کنیم مسیر یادگیری زبان انگلیسی را
       منظم، قابل‌فهم و کاربردی طراحی کنیم.
     </p>
   </section>
 
-  <article class="course-card reveal">
+  <article class="course-card reveal" aria-labelledby="course-card-title">
 
-    <div class="course-art">
+    <div class="course-art" aria-hidden="true">
       <div class="course-art-star">✦</div>
       <div class="course-art-card">
-        <strong>DICA</strong>
-        <small>ENGLISH COURSES</small>
+        <strong>دیکالینگو</strong>
+        <small>دوره‌های زبان انگلیسی</small>
       </div>
     </div>
 
     <div class="course-info">
       <span class="status">به‌زودی</span>
 
-      <h2>دوره‌های زبان انگلیسی</h2>
+      <h2 id="course-card-title">دوره‌های زبان انگلیسی</h2>
 
       <p>
         دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.
@@ -646,15 +764,15 @@ footer {
 
   </article>
 
-  <div class="bottom-banner reveal">
+  <section class="bottom-banner reveal" aria-labelledby="banner-title">
     <div class="banner-content">
-      <h2>همراه دیکالینگو باش!</h2>
+      <h2 id="banner-title">همراه دیکالینگو باش!</h2>
       <p>
         برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو
         می‌توانی از صفحه اصلی وارد شبکه‌های اجتماعی ما شوی.
       </p>
     </div>
-  </div>
+  </section>
 
 </div>
 
@@ -663,23 +781,29 @@ footer {
 <footer>
   <div class="container footer-inner">
     <div class="footer-logo">دیکالینگو</div>
-    <p>© 2026 دیکالینگو — تمامی حقوق محفوظ است.</p>
+    <p>© ۲۰۲۶ دیکالینگو — تمامی حقوق محفوظ است.</p>
   </div>
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(element => {
-  observer.observe(element);
-});
+  document.querySelectorAll('.reveal').forEach(element => {
+    observer.observe(element);
+  });
+} else {
+  document.querySelectorAll('.reveal').forEach(element => {
+    element.classList.add('visible');
+  });
+}
 </script>
 
 </body>
