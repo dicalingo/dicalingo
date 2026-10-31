@@ -4,95 +4,522 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b35">
 <title>دیکالینگو | یادگیری انگلیسی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;background:#fbfaf8;color:#172033;font-weight:500;line-height:2}
-header{background:#101b35;color:white;padding:20px 7%}
-nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:27px;font-weight:900}
-.logo span{color:#f29a45}
-nav a{color:white;text-decoration:none;cursor:default}
-.hero{background:#101b35;color:white;padding:85px 8%;text-align:center}
-.hero h1{font-size:45px;font-weight:900;line-height:1.5}
-.hero h1 span{color:#f29a45}
-.hero p{color:#d0d7e4;font-size:17px}
-.btn{display:inline-block;background:#f29a45;color:#101b35;padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:800;margin-top:18px}
-section{padding:65px 8%;text-align:center}
-h2{font-size:30px;color:#101b35;font-weight:900}
-.cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:35px}
-.card{background:white;border:1px solid #e9e7e2;border-radius:16px;padding:25px;width:270px}
-.card h3{color:#101b35;font-weight:800}
-.card p{color:#687386;font-size:14px}
-.about,.social{background:#f1f0ec}
-.social-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:30px}
-.social-link{display:inline-block;background:#fff;color:#101b35;text-decoration:none;padding:13px 25px;border-radius:12px;font-weight:800;border:1px solid #e9e7e2;transition:.2s}
-.social-link:hover{background:#f29a45;border-color:#f29a45;transform:translateY(-3px)}
-footer{background:#0b1428;color:#abb6c9;text-align:center;padding:20px;font-size:13px}
-@media(max-width:600px){.hero h1{font-size:34px}section{padding:50px 6%}}
+:root{
+  --navy:#101b35;
+  --navy2:#172746;
+  --orange:#f29a45;
+  --cream:#fbfaf8;
+  --white:#ffffff;
+  --muted:#788398;
+  --border:rgba(16,27,53,.09);
+  --shadow:0 18px 55px rgba(16,27,53,.09);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
+}
+
+body{
+  font-family:Vazirmatn,Tahoma,sans-serif;
+  background:var(--cream);
+  color:var(--navy);
+  line-height:2;
+  overflow-x:hidden;
+}
+
+a{ -webkit-tap-highlight-color:transparent }
+
+::selection{
+  background:var(--orange);
+  color:var(--navy);
+}
+
+/* Scroll progress */
+.progress{
+  position:fixed;
+  top:0;
+  right:0;
+  width:0%;
+  height:3px;
+  background:var(--orange);
+  z-index:1000;
+}
+
+/* Header */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(16,27,53,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:29px;
+  font-weight:900;
+  color:white;
+  letter-spacing:-1px;
+}
+
+.logo span{color:var(--orange)}
+
+.nav-contact{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700;
+  padding:8px 17px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:9px;
+  cursor:default;
+}
+
+/* Hero */
+.hero{
+  min-height:650px;
+  padding:100px 7% 110px;
+  background:
+    radial-gradient(ellipse at 80% 20%,rgba(242,154,69,.16),transparent 35%),
+    radial-gradient(ellipse at 10% 90%,rgba(64,105,168,.2),transparent 35%),
+    linear-gradient(135deg,#101b35,#172746);
+  color:white;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:50%;
+  width:430px;
+  height:430px;
+  animation:float 12s ease-in-out infinite;
+}
+
+.hero::before{top:-230px;right:-100px}
+.hero::after{bottom:-300px;left:-100px;animation-delay:-5s}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+  animation:heroIn 1s ease both;
+}
+
+.hero-tag{
+  display:inline-block;
+  color:var(--orange);
+  border:1px solid rgba(242,154,69,.35);
+  background:rgba(242,154,69,.08);
+  padding:5px 20px;
+  border-radius:50px;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:clamp(38px,6vw,66px);
+  font-weight:900;
+  line-height:1.65;
+  letter-spacing:-2px;
+}
+
+.hero h1 span{
+  color:var(--orange);
+  position:relative;
+}
+
+.hero p{
+  color:#cbd4e3;
+  font-size:17px;
+  margin-top:15px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--orange);
+  color:var(--navy);
+  text-decoration:none;
+  padding:13px 32px;
+  border-radius:11px;
+  font-weight:900;
+  margin-top:30px;
+  box-shadow:0 9px 25px rgba(242,154,69,.2);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(242,154,69,.35);
+}
+
+/* Shared sections */
+section{
+  padding:95px 7%;
+  text-align:center;
+}
+
+.section-inner{
+  max-width:1150px;
+  margin:auto;
+}
+
+.section-heading{
+  font-size:clamp(27px,4vw,36px);
+  font-weight:900;
+  margin-bottom:12px;
+  letter-spacing:-1px;
+}
+
+.heading-line{
+  width:55px;
+  height:4px;
+  background:var(--orange);
+  border-radius:10px;
+  margin:18px auto 38px;
+}
+
+/* Cards */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:22px;
+  margin-top:45px;
+}
+
+.card{
+  position:relative;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:19px;
+  padding:35px 25px;
+  box-shadow:0 5px 20px rgba(16,27,53,.025);
+  transition:transform .35s,box-shadow .35s,border-color .35s;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:0;
+  height:4px;
+  background:var(--orange);
+  transition:width .4s;
+}
+
+.card:hover{
+  transform:translateY(-9px);
+  box-shadow:var(--shadow);
+  border-color:rgba(242,154,69,.35);
+}
+
+.card:hover::before{width:100%}
+
+.card h3{
+  font-size:19px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* About */
+.about{
+  background:
+    radial-gradient(circle at 10% 20%,rgba(242,154,69,.07),transparent 30%),
+    #f1f0ec;
+}
+
+.about-text{
+  max-width:750px;
+  margin:auto;
+  font-size:17px;
+  color:#5d687c;
+  line-height:2.5;
+}
+
+/* Courses */
+.course-card{
+  max-width:520px;
+  margin:35px auto 0;
+  border-radius:22px;
+  background:white;
+  border:1px solid var(--border);
+  padding:40px 25px;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.course-card:hover{transform:translateY(-6px)}
+
+.coming{
+  display:inline-block;
+  color:#d47b2e;
+  background:#fff3e7;
+  padding:4px 18px;
+  border-radius:50px;
+  margin-top:14px;
+  font-weight:800;
+  font-size:14px;
+}
+
+/* Social */
+.social{
+  background:#f1f0ec;
+  position:relative;
+  overflow:hidden;
+}
+
+.social-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:17px;
+  margin-top:35px;
+}
+
+.social-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:155px;
+  padding:14px 25px;
+  border-radius:13px;
+  background:white;
+  color:var(--navy);
+  border:1px solid var(--border);
+  text-decoration:none;
+  font-weight:800;
+  transition:.3s;
+}
+
+.social-link:hover{
+  background:var(--navy);
+  color:white;
+  transform:translateY(-6px);
+  box-shadow:0 12px 28px rgba(16,27,53,.13);
+}
+
+.social-link span{
+  margin-left:9px;
+  color:var(--orange);
+  font-size:19px;
+}
+
+/* Footer */
+footer{
+  background:#0b1428;
+  color:#abb6c9;
+  text-align:center;
+  padding:28px 15px;
+  font-size:13px;
+}
+
+.footer-logo{
+  color:white;
+  font-size:21px;
+  font-weight:900;
+  margin-bottom:5px;
+}
+
+/* Reveal animations */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes float{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(20px,-25px)}
+}
+
+/* Responsive */
+@media(max-width:760px){
+  .hero{min-height:570px;padding:85px 7%}
+  .hero h1{letter-spacing:-1px}
+  section{padding:70px 6%}
+  .cards{grid-template-columns:1fr;gap:16px}
+  .card{padding:28px 22px}
+  .social-link{min-width:135px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
 </style>
 </head>
+
 <body>
+
+<div class="progress" id="progress"></div>
+
 <header>
 <nav>
-<div class="logo">دیکالینگو</div>
-<a aria-disabled="true">ارتباط با ما</a>
+<div class="logo">دیکالینگو<span>.</span></div>
+<a class="nav-contact" aria-disabled="true">ارتباط با ما</a>
 </nav>
 </header>
 
+<main>
+
 <div class="hero">
-<p>مسیر تازه‌ای برای یادگیری زبان</p>
+<div class="hero-content">
+<p class="hero-tag">مسیر تازه‌ای برای یادگیری زبان</p>
 <h1>انگلیسی را<br><span>با اطمینان</span> یاد بگیر.</h1>
 <p>یادگیری ساده، کاربردی و هدفمند زبان انگلیسی با دیکالینگو</p>
 <a class="btn" href="#courses">مشاهده دوره‌ها</a>
 </div>
+</div>
 
 <section>
-<h2>چرا دیکالینگو؟</h2>
+<div class="section-inner">
+<h2 class="section-heading reveal">چرا دیکالینگو؟</h2>
+<div class="heading-line reveal"></div>
+
 <div class="cards">
-<div class="card">
+<div class="card reveal">
 <h3>✦ آموزش قابل‌فهم</h3>
 <p>مفاهیم را ساده و مرحله‌به‌مرحله یاد بگیر.</p>
 </div>
-<div class="card">
+
+<div class="card reveal">
 <h3>◎ تمرین کاربردی</h3>
 <p>دانسته‌هایت را به مهارتی قابل استفاده تبدیل کن.</p>
 </div>
-<div class="card">
+
+<div class="card reveal">
 <h3>↗ پیشرفت پیوسته</h3>
 <p>با هدف‌های مشخص مسیر یادگیری را ادامه بده.</p>
+</div>
 </div>
 </div>
 </section>
 
 <section class="about">
-<h2>درباره دیکالینگو</h2>
-<p>یک برند آموزشی در حوزه زبان انگلیسی؛ با هدف ایجاد تجربه‌ای دوستانه، منظم و کاربردی برای زبان‌آموزان.</p>
+<div class="section-inner">
+<h2 class="section-heading reveal">درباره دیکالینگو</h2>
+<div class="heading-line reveal"></div>
+<p class="about-text reveal">
+یک برند آموزشی در حوزه زبان انگلیسی؛ با هدف ایجاد تجربه‌ای دوستانه، منظم و کاربردی برای زبان‌آموزان.
+</p>
+</div>
 </section>
 
 <section id="courses">
-<h2>دوره‌های آموزشی</h2>
-<div class="card" style="margin:25px auto">
+<div class="section-inner">
+<h2 class="section-heading reveal">دوره‌های آموزشی</h2>
+<div class="heading-line reveal"></div>
+
+<div class="course-card reveal">
 <h3>دوره‌های زبان انگلیسی</h3>
 <p>دوره‌های آموزشی دیکالینگو به‌زودی معرفی خواهند شد.</p>
-<strong style="color:#d47b2e">به‌زودی</strong>
+<span class="coming">به‌زودی</span>
+</div>
 </div>
 </section>
 
 <section class="social">
-<h2>دیکالینگو در شبکه‌های اجتماعی</h2>
-<p>برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو همراه ما باش.</p>
-<div class="social-links">
-<a class="social-link" href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">اینستاگرام</a>
-<a class="social-link" href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">تلگرام</a>
-<a class="social-link" href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">یوتیوب</a>
+<div class="section-inner">
+<h2 class="section-heading reveal">دیکالینگو در شبکه‌های اجتماعی</h2>
+<div class="heading-line reveal"></div>
+<p class="reveal">برای دنبال کردن آموزش‌ها و تازه‌ترین اخبار دیکالینگو همراه ما باش.</p>
+
+<div class="social-links reveal">
+<a class="social-link" href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">
+<span>◎</span> اینستاگرام
+</a>
+
+<a class="social-link" href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">
+<span>➤</span> تلگرام
+</a>
+
+<a class="social-link" href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">
+<span>▶</span> یوتیوب
+</a>
+</div>
 </div>
 </section>
 
+</main>
+
 <footer>
+<div class="footer-logo">دیکالینگو</div>
 © 2026 دیکالینگو — تمامی حقوق محفوظ است.
 </footer>
+
+<script>
+const progress = document.getElementById("progress");
+
+window.addEventListener("scroll",()=>{
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  const current = total > 0 ? (window.scrollY / total) * 100 : 0;
+  progress.style.width = current + "%";
+});
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(element=>{
+  observer.observe(element);
+});
+</script>
+
 </body>
 </html>
