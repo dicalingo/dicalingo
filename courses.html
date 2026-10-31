@@ -316,6 +316,12 @@ header {
   align-items: center;
   box-shadow: 0 7px 0 rgba(23,27,46,.035);
   margin: 25px 0 70px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(23,27,46,.07);
 }
 
 .course-art {
@@ -492,7 +498,7 @@ footer {
   color: #B7BAC6;
 }
 
-/* ANIMATION */
+/* SCROLL REVEAL */
 
 .reveal {
   opacity: 0;
@@ -503,6 +509,87 @@ footer {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* DECORATIVE FLOAT ANIMATIONS */
+
+.visual-circle {
+  animation: circleFloat 6s ease-in-out infinite;
+}
+
+.visual-card {
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.visual-star {
+  animation: starFloat 4s ease-in-out infinite;
+}
+
+.visual-bubble {
+  animation: dotFloat 5.5s ease-in-out infinite;
+}
+
+.course-art::before {
+  animation: circleFloat 6s ease-in-out infinite;
+}
+
+.course-art-card {
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.course-art-star {
+  animation: starFloat 4s ease-in-out infinite;
+}
+
+.bottom-banner::after {
+  animation: bannerFloat 8s ease-in-out infinite;
+}
+
+@keyframes circleFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+@keyframes starFloat {
+  0%, 100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -10px;
+    rotate: 10deg;
+  }
+}
+
+@keyframes dotFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes bannerFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 15px;
+  }
 }
 
 /* RESPONSIVE */
@@ -664,6 +751,17 @@ footer {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .visual-circle,
+  .visual-card,
+  .visual-star,
+  .visual-bubble,
+  .course-art::before,
+  .course-art-card,
+  .course-art-star,
+  .bottom-banner::after {
+    animation: none;
   }
 }
 </style>
