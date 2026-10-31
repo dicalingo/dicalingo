@@ -167,26 +167,7 @@ header {
   max-width: 430px;
 }
 
-.primary-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 28px;
-  padding: 14px 25px;
-  color: white;
-  background: var(--orange);
-  border-radius: 14px;
-  font-size: 14px;
-  font-weight: 700;
-  box-shadow: 0 6px 0 #D94700;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.primary-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 9px 0 #D94700;
-}
+/* HERO DECORATION */
 
 .hero-art {
   min-height: 350px;
@@ -336,11 +317,12 @@ section {
   padding: 27px;
   position: relative;
   overflow: hidden;
-  transition: transform .3s;
+  transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-7px);
+  box-shadow: 0 12px 25px rgba(23,27,46,.08);
 }
 
 .feature-card.peach {
@@ -392,6 +374,11 @@ section {
   bottom: -35px;
   background: rgba(255,255,255,.38);
   pointer-events: none;
+  transition: transform .4s ease;
+}
+
+.feature-card:hover .feature-decoration {
+  transform: scale(1.25);
 }
 
 /* ABOUT */
@@ -457,12 +444,13 @@ section {
   box-shadow: 0 5px 0 #C94400;
   font-size: 13px;
   font-weight: 700;
-  transition: transform .2s;
+  transition: transform .2s ease, box-shadow .2s ease;
   text-align: center;
 }
 
 .course-button:hover {
   transform: translateY(-3px);
+  box-shadow: 0 8px 0 #C94400;
 }
 
 /* SOCIAL */
@@ -491,12 +479,13 @@ section {
   font-size: 13px;
   font-weight: 700;
   box-shadow: 0 5px 0 rgba(23,27,46,.04);
-  transition: background .2s, transform .2s;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 
 .social-links a:hover {
   background: var(--peach);
   transform: translateY(-4px);
+  box-shadow: 0 9px 15px rgba(23,27,46,.06);
 }
 
 /* KEYBOARD ACCESSIBILITY */
@@ -532,7 +521,7 @@ footer {
   line-height: 2;
 }
 
-/* ANIMATION */
+/* SCROLL REVEAL */
 
 .reveal {
   opacity: 0;
@@ -543,6 +532,75 @@ footer {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* DECORATIVE FLOAT ANIMATIONS */
+
+.art-circle {
+  animation: circleFloat 6s ease-in-out infinite;
+}
+
+.art-card {
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.art-star {
+  animation: starFloat 4s ease-in-out infinite;
+}
+
+.art-dot {
+  animation: dotFloat 5.5s ease-in-out infinite;
+}
+
+.art-small-card {
+  animation: smallCardFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes circleFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -9px;
+  }
+}
+
+@keyframes starFloat {
+  0%, 100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -10px;
+    rotate: 10deg;
+  }
+}
+
+@keyframes dotFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes smallCardFloat {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -7px;
+  }
 }
 
 /* RESPONSIVE */
@@ -729,6 +787,14 @@ footer {
     opacity: 1;
     transform: none;
   }
+
+  .art-circle,
+  .art-card,
+  .art-star,
+  .art-dot,
+  .art-small-card {
+    animation: none;
+  }
 }
 </style>
 </head>
@@ -765,11 +831,6 @@ footer {
       <p class="hero-description">
         یادگیری ساده، کاربردی و هدفمند زبان انگلیسی با دیکالینگو
       </p>
-
-      <a href="courses.html" class="primary-button">
-        مشاهده دوره‌ها
-        <span aria-hidden="true">←</span>
-      </a>
     </div>
 
     <div class="hero-art" aria-hidden="true">
