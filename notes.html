@@ -29,11 +29,22 @@ body {
   font-family:Vazirmatn,sans-serif;
   background:var(--cream);
   color:var(--navy);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 a {
   text-decoration:none;
   color:inherit;
+}
+
+a:focus {
+  outline:none;
+}
+
+a:focus-visible {
+  outline:none;
 }
 
 .container {
@@ -189,6 +200,10 @@ header {
 
 .download-btn:hover {
   background:#e95000;
+}
+
+main {
+  flex:1;
 }
 
 footer {
