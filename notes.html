@@ -37,14 +37,20 @@ body {
 a {
   text-decoration:none;
   color:inherit;
+  -webkit-tap-highlight-color:transparent;
+  tap-highlight-color:transparent;
 }
 
-a:focus {
-  outline:none;
-}
-
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus,
 a:focus-visible {
-  outline:none;
+  outline:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+  -webkit-focus-ring-color:transparent !important;
+  box-shadow:none !important;
 }
 
 .container {
