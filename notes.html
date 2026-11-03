@@ -1,63 +1,296 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="theme-color" content="#111a30">
- <link rel="icon" type="image/jpeg" href="./InShot_20261015_233634057.jpg">
- <link rel="apple-touch-icon" href="./InShot_20261015_233634057.jpg">
- <meta name="description" content="دانلود جزوه‌های آموزش زبان انگلیسی دیکالینگو؛ شروع با سطح A1.">
- <meta name="color-scheme" content="light">
- <title>جزوه‌های آموزشی | Dicalingo</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFF9F5">
+<title>جزوه‌های آموزشی | Dicalingo</title>
+<meta name="description" content="دانلود جزوه‌های آموزش زبان انگلیسی دیکالینگو">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --orange:#FF5A00;
+  --navy:#171B2E;
+  --cream:#FFF9F5;
+  --peach:#FFE2D2;
+  --mint:#DDF2E7;
+  --muted:#777B89;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family:Vazirmatn,sans-serif;
+  background:var(--cream);
+  color:var(--navy);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+  -webkit-tap-highlight-color:transparent;
+  tap-highlight-color:transparent;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus,
+a:focus-visible {
+  outline:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+  -webkit-focus-ring-color:transparent !important;
+  box-shadow:none !important;
+}
+
+.container {
+  width:min(1080px,92%);
+  margin:auto;
+}
+
+header {
+  height:76px;
+  display:flex;
+  align-items:center;
+  background:#fff9f5ed;
+  border-bottom:1px solid #171b2e0d;
+}
+
+.nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo {
+  font-size:25px;
+  font-weight:900;
+}
+
+.logo span {
+  color:var(--orange);
+}
+
+.back {
+  font-size:13px;
+  font-weight:700;
+  color:var(--orange);
+  text-align:center;
+}
+
+.hero {
+  margin:28px 0;
+  padding:30px;
+  border-radius:28px;
+  background:var(--peach);
+}
+
+.hero h1 {
+  font-size:30px;
+  font-weight:900;
+}
+
+.hero p {
+  font-size:13px;
+  line-height:2;
+  color:#626575;
+  margin-top:8px;
+}
+
+.section-title {
+  font-size:21px;
+  font-weight:900;
+  margin:35px 0 18px;
+}
+
+.lesson {
+  background:white;
+  border:1px solid #171b2e0d;
+  border-radius:22px;
+  padding:22px;
+  margin-bottom:17px;
+  box-shadow:0 5px 18px #171b2e06;
+}
+
+.lesson-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.lesson-number {
+  background:var(--peach);
+  color:#b7470c;
+  padding:7px 13px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.lesson h3 {
+  font-size:18px;
+  font-weight:900;
+}
+
+.lesson p {
+  font-size:12px;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.download {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:14px;
+  margin-top:12px;
+  border-radius:15px;
+  background:#FFF9F5;
+  text-align:center;
+}
+
+.file-info {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:11px;
+  text-align:center;
+}
+
+.file-icon {
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:var(--peach);
+  font-size:21px;
+}
+
+.file-info strong {
+  display:block;
+  font-size:13px;
+}
+
+.file-info small {
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:4px;
+}
+
+.download-btn {
+  background:var(--orange);
+  color:white;
+  padding:10px 15px;
+  border-radius:11px;
+  font-size:11px;
+  font-weight:800;
+  white-space:nowrap;
+  text-align:center;
+}
+
+.download-btn:hover {
+  background:#e95000;
+}
+
+main {
+  flex:1;
+}
+
+footer {
+  margin-top:55px;
+  padding:22px 0;
+  border-top:1px solid #171b2e12;
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+}
+
+@media(max-width:500px) {
+  .hero h1 {
+    font-size:24px;
+  }
+
+  .lesson {
+    padding:16px;
+  }
+
+  .lesson h3 {
+    font-size:16px;
+  }
+
+  .download {
+    padding:11px;
+  }
+
+  .download-btn {
+    padding:9px 11px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<a class="skip-link" href="#main">رفتن به محتوای اصلی</a>
-<header class="site-header">
- <div class="container header-inner">
-  <a class="brand" href="index.html" aria-label="Dicalingo، صفحه اصلی"><span class="brand-mark">D</span><span class="brand-word">Dica<span>lingo</span></span></a>
-  <nav class="main-nav" id="main-navigation" aria-label="منوی اصلی">
-   <a href="index.html" >خانه</a>
-   <a href="courses.html" >دوره‌ها</a>
-   <a href="products.html" >محصولات</a>
-   <a href="notes.html" aria-current='page'>جزوه‌ها</a>
-  </nav>
-  <div class="header-actions"><a class="btn btn-primary" href="products.html">منابع آموزشی <span aria-hidden="true">←</span></a><button class="menu-toggle" type="button" aria-label="باز کردن منو" aria-expanded="false" aria-controls="main-navigation">☰</button></div>
- </div>
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html">دیـ<span>کالینگو</span></a>
+    <a class="back" href="products.html">بازگشت</a>
+  </div>
 </header>
 
-<main id="main">
+<main class="container">
 
-<section class="page-hero"><div class="container page-hero-inner"><div class="breadcrumb"><a href="index.html">خانه</a> / <a href="products.html">محصولات</a> / جزوه‌ها</div><div class="kicker">STUDY NOTES</div><h1>یاد بگیر. مرور کن.<br>با اطمینان جلو برو.</h1><p>جزوه‌های آموزشی Dicalingo برای یادگیری مرحله‌به‌مرحله زبان انگلیسی آماده می‌شوند. فایل‌ها را دریافت کن و در کنار درس، تمرین و مرور داشته باش.</p></div></section>
-<section class="section"><div class="container">
- <div class="level-heading reveal"><span>A1</span><h2>سطح مبتدی</h2></div>
- <div class="resource-list">
-  <article class="resource-card reveal"><div class="resource-main"><div class="resource-icon">▤</div><div><h3>Introducing Yourself</h3><p>درس اول · معرفی خود · مناسب زبان‌آموزان سطح A1</p></div></div><div class="resource-side"><small>PDF · A1</small><a class="download-btn" href="A1-Lesson-01.pdf" download>دانلود جزوه <span>↓</span></a></div></article>
- </div>
- <div class="info-panel reveal"><div class="feature-icon">i</div><div><strong>درباره فایل‌های آموزشی</strong><p>برای دریافت فایل، روی دکمه دانلود بزن. اگر فایل در همان پوشه سایت قرار داشته باشد، دانلود با نام اصلی انجام می‌شود. برای درست کارکردن لینک، فایل A1-Lesson-01.pdf را کنار notes.html نگه دار.</p></div></div>
-</div></section>
+  <section class="hero">
+    <h1>جزوه‌های آموزشی دیکالینگو</h1>
+    <p>جزوه‌های کاربردی و هدفمند برای یادگیری مرحله‌به‌مرحله زبان انگلیسی.</p>
+  </section>
+
+  <h2 class="section-title">سطح A1 – مبتدی</h2>
+
+  <article class="lesson">
+
+    <div class="lesson-top">
+      <div>
+        <h3>Introducing Yourself</h3>
+        <p>معرفی خود</p>
+      </div>
+      <span class="lesson-number">Lesson 01</span>
+    </div>
+
+    <a class="download" href="A1-Lesson-01.pdf" download>
+      <div class="file-info">
+        <div class="file-icon">📄</div>
+        <div>
+          <strong>جزوه آموزشی درس اول</strong>
+          <small>PDF · A1</small>
+        </div>
+      </div>
+      <span class="download-btn">دانلود جزوه</span>
+    </a>
+
+  </article>
 
 </main>
 
-<footer class="site-footer">
- <div class="container">
-  <div class="footer-top">
-   <div>
-    <a class="brand footer-brand" href="index.html"><span class="brand-mark">D</span><span class="brand-word">Dica<span>lingo</span></span></a>
-    <p class="footer-about">Dicalingo یک برند آموزشی در حوزه زبان انگلیسی است؛ برای یادگیری روشن‌تر، تمرین هدفمند و قدم‌های پیوسته.</p>
-   </div>
-   <div class="footer-links">
-    <div class="footer-col"><h4>دسترسی سریع</h4><a href="index.html">صفحه اصلی</a><a href="courses.html">دوره‌ها</a><a href="products.html">محصولات</a><a href="notes.html">جزوه‌ها</a></div>
-    <div class="footer-col"><h4>شبکه‌های اجتماعی</h4><a href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">اینستاگرام</a><a href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">تلگرام</a><a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">یوتیوب</a></div>
-   </div>
-  </div>
-  <div class="footer-bottom"><span>© ۲۰۲۶ Dicalingo — تمامی حقوق محفوظ است.</span><span class="socials"><a href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer">YouTube</a></span></div>
- </div>
+<footer>
+  © ۲۰۲۶ دیکالینگو — تمامی حقوق محفوظ است.
 </footer>
 
-<script src="script.js" defer></script>
 </body>
 </html>
