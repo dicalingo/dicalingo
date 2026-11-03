@@ -1,20 +1,18 @@
-DICALINGO WEBSITE REDESIGN
-========================
+Dicalingo — refreshed website package
 
-Files:
+Files to upload to your GitHub Pages repository (same folder/root as index.html):
 - index.html
 - courses.html
 - products.html
-- notes.html
 - styles.css
 - script.js
 
-Keep all six files in the same website folder.
-Keep A1-Lesson-01.pdf in the same folder as notes.html for the download link to work.
-Keep the existing favicon file (InShot_20261015_233634057.jpg) in the same folder if you want to add it back to the <head>.
-The three social links are preserved:
-Instagram: https://instagram.com/dicalingo
-Telegram: https://t.me/dicalingo
-YouTube: https://www.youtube.com/@dicalingo
+Important existing assets to KEEP in the repository:
+- A1-Lesson-01.pdf (downloaded directly from the home/products page)
+- InShot_20261015_233634057.jpg (favicon / app icon)
 
-Design uses Estedad for Persian and Plus Jakarta Sans for Latin text, loaded from Google Fonts.
+The standalone notes.html page has intentionally been removed. Notes are now shown as a direct-download resource inside the home page and Products page.
+
+Typography now uses Vazirmatn for Persian and Plus Jakarta Sans for English. The fonts load from Google Fonts, so an internet connection is needed for the selected web fonts; otherwise the browser uses a sans-serif fallback.
+
+Upload the five website files above to the repository root. Do not delete the PDF or favicon. If GitHub asks to replace existing files, replace only matching HTML/CSS/JS files.
