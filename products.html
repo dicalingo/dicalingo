@@ -1,91 +1,203 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#FFF9F5">
-<title>محصولات | Dicalingo</title>
-<meta name="description" content="محصولات و ابزارهای آموزشی دیکالینگو">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{--orange:#FF5A00;--navy:#171B2E;--cream:#FFF9F5;--peach:#FFE2D2;--mint:#DDF2E7;--lavender:#EAE3FA;--yellow:#FFF0B9;--muted:#777B89}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Vazirmatn,sans-serif;background:var(--cream);color:var(--navy);min-height:100vh}
-a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
-.container{width:min(1080px,92%);margin:auto}
-header{height:76px;display:flex;align-items:center;position:sticky;top:0;z-index:20;background:#fff9f5ed;backdrop-filter:blur(14px);border-bottom:1px solid #171b2e0d}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:15px}
-.logo{font-size:25px;font-weight:900;white-space:nowrap}.logo span{color:var(--orange)}
-nav{display:flex;align-items:center;gap:27px;font-size:14px;font-weight:700;color:#626575}
-nav a:hover,nav a.active{color:var(--orange)}
-.page-hero{margin:26px auto 22px;padding:30px 6%;min-height:190px;border-radius:29px;background:linear-gradient(120deg,#EAE3FA,#F8EAF0);display:flex;align-items:center;justify-content:space-between;gap:25px;overflow:hidden;position:relative}
-.page-hero:after{content:"";position:absolute;width:190px;height:190px;border:25px solid #ffffff55;border-radius:50%;left:-55px;bottom:-110px}
-.page-hero h1{font-size:clamp(27px,4vw,40px);font-weight:900}
-.page-hero p{font-size:13px;color:#626575;margin-top:8px;line-height:2}
-.hero-symbol{width:115px;height:115px;flex-shrink:0;border-radius:35px;background:#ffffffb8;display:grid;place-items:center;font-size:48px;transform:rotate(7deg);box-shadow:0 15px 25px #171b2e10;animation:float 5s ease-in-out infinite}
-.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:25px 0 15px}
-.section-heading h2{font-size:21px;font-weight:900}
-.section-heading span{font-size:11px;color:var(--muted)}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.card{border-radius:22px;padding:20px;min-height:195px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
-.card:hover{transform:translateY(-4px);box-shadow:0 14px 25px #171b2e10}
-.card:nth-child(1){background:var(--peach)}.card:nth-child(2){background:var(--mint)}.card:nth-child(3){background:var(--yellow)}
-.card-icon{width:47px;height:47px;border-radius:15px;background:#ffffffb8;display:grid;place-items:center;font-size:22px}
-.card h3{font-size:17px;font-weight:900;margin-top:16px}
-.card p{font-size:12px;color:#626575;line-height:1.9;margin-top:5px}
-.status{align-self:flex-start;margin-top:13px;padding:6px 12px;border-radius:20px;background:#ffffffb8;color:#9a4c20;font-size:10px;font-weight:800}
-.banner{margin:21px 0 23px;padding:19px 24px;border-radius:21px;background:var(--navy);color:white;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.banner strong{font-size:15px}.banner p{font-size:11px;color:#c9cbd4;margin-top:4px}
-.banner-mark{font-size:28px;color:var(--orange)}
-footer{padding:18px 0 23px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid #171b2e12;padding-top:16px}
-.footer-copy{font-size:11px;color:var(--muted)}
-.socials{display:flex;gap:9px}.socials a{width:auto;min-width:36px;height:36px;padding:0 10px;white-space:nowrap;border-radius:12px;background:white;display:grid;place-items:center;font-size:12px;font-weight:900;transition:.2s}
-.socials a:hover{background:var(--orange);color:white}
-@keyframes float{50%{transform:translateY(-8px) rotate(3deg)}}
-a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
-@media(max-width:700px){
- header{height:66px}.logo{font-size:21px}nav{gap:13px;font-size:12px}
- .page-hero{padding:23px 20px;min-height:150px;border-radius:24px}.hero-symbol{width:85px;height:85px;font-size:37px;border-radius:26px}
- .page-hero h1{font-size:25px}.page-hero p{font-size:11px}
- .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
- .card{min-height:175px;padding:15px}.card h3{font-size:15px;margin-top:13px}.card p{font-size:11px}
- .section-heading h2{font-size:18px}.section-heading span{font-size:10px}
- .banner{padding:16px 18px}.banner strong{font-size:13px}
-}
-@media(max-width:360px){.container{width:94%}nav{gap:9px;font-size:11px}.logo{font-size:19px}.page-hero{gap:10px;padding:20px 14px}.hero-symbol{width:70px;height:70px;font-size:30px}.card{padding:12px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محصولات | دیکالینگو</title>
+  <meta name="description" content="محصولات آموزشی دیکالینگو." />
+  <meta name="theme-color" content="#FFF9F5" />
+
+  <!-- پروفایل سایت -->
+  <link rel="icon" type="image/jpeg" href="assets/images/InShot_20261015_233634057.jpg" />
+  <link rel="apple-touch-icon" href="assets/images/InShot_20261015_233634057.jpg" />
+  <meta property="og:image" content="assets/images/InShot_20261015_233634057.jpg" />
+  <meta property="og:image:alt" content="دیکالینگو" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="assets/images/InShot_20261015_233634057.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-<header><div class="container nav">
-<a class="logo" href="index.html">دیـ<span>کالینگو</span></a>
-<nav aria-label="منوی اصلی">
-<a href="index.html">خانه</a><a href="courses.html">دوره‌ها</a><a class="active" href="products.html">محصولات</a>
-</nav>
-</div></header>
-<main class="container">
-<section class="page-hero">
-<div><h1>محصولات دیکالینگو</h1><p>ابزارهایی برای همراهی با مسیر یادگیری زبان انگلیسی.</p></div>
-<div class="hero-symbol" aria-hidden="true">✦</div>
-</section>
-<div class="section-heading"><h2>محصولات آموزشی</h2><span>یادگیری در کنار ابزارهای کاربردی</span></div>
-<section class="cards">
-<a href="notes.html" class="card">
-<div><div class="card-icon">📖</div><h3>جزوه‌های آموزشی</h3><p>محتوای آموزشی برای مرور و یادگیری بهتر.</p></div>
-<span class="status" style="text-align:center;">مشاهده جزوه‌ها</span>
-</a>
-<article class="card"><div><div class="card-icon">🗂️</div><h3>فایل‌های تمرینی</h3><p>تمرین‌هایی برای تقویت مهارت‌های زبان.</p></div><span class="status">به‌زودی</span></article>
-<article class="card"><div><div class="card-icon">🎯</div><h3>بسته‌های یادگیری</h3><p>مجموعه‌ای از منابع برای یادگیری هدفمند.</p></div><span class="status">به‌زودی</span></article>
-</section>
-<section class="banner"><div><strong>ابزارهای بهتر، مسیر یادگیری بهتر.</strong><p>محصولات دیکالینگو به‌زودی معرفی خواهند شد.</p></div><div class="banner-mark">✳</div></section>
-</main>
-<footer><div class="container footer-inner">
-<div class="footer-copy">© ۲۰۲۶ دیکالینگو</div>
-<div class="socials">
-<a href="https://instagram.com/dicalingo" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام">اینستاگرام</a>
-<a href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer" aria-label="تلگرام">تلگرام</a>
-<a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب">یوتیوب</a>
-</div></div></footer>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="دیکالینگو - صفحه اصلی">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">Dicalingo</span>
+      </a>
+      <button class="menu-toggle" aria-label="منو" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="منوی اصلی">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">صفحه اصلی</a></li>
+          <li><a href="courses.html" class="nav-link">دوره‌ها</a></li>
+          <li><a href="products.html" class="nav-link active">محصولات</a></li>
+          <li><a href="index.html#about" class="nav-link">درباره ما</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <h1 class="page-title">محصولات</h1>
+      <div class="page-art" aria-hidden="true">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="prO" cx="32%" cy="28%" r="78%">
+              <stop offset="0%" stop-color="#FFD0AC"/>
+              <stop offset="45%" stop-color="#FF7A2E"/>
+              <stop offset="100%" stop-color="#8E2D00"/>
+            </radialGradient>
+            <radialGradient id="prY" cx="32%" cy="28%" r="72%">
+              <stop offset="0%" stop-color="#FFFEF0"/>
+              <stop offset="50%" stop-color="#FFE9A8"/>
+              <stop offset="100%" stop-color="#C2A050"/>
+            </radialGradient>
+            <radialGradient id="prM" cx="32%" cy="28%" r="72%">
+              <stop offset="0%" stop-color="#F0FFF8"/>
+              <stop offset="50%" stop-color="#B8E8D8"/>
+              <stop offset="100%" stop-color="#5E9C86"/>
+            </radialGradient>
+            <filter id="prSh" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="9"/></filter>
+          </defs>
+          <ellipse cx="200" cy="272" rx="160" ry="14" fill="#171B2E" opacity="0.15" filter="url(#prSh)"/>
+
+          <g class="float-slow">
+            <rect x="86" y="150" width="180" height="94" rx="14" fill="url(#prM)"/>
+            <ellipse cx="176" cy="182" rx="60" ry="18" fill="#FFFFFF" opacity="0.4" filter="url(#prSh)"/>
+          </g>
+
+          <g class="float-medium">
+            <rect x="100" y="108" width="160" height="60" rx="12" fill="url(#prY)"/>
+            <ellipse cx="180" cy="128" rx="52" ry="12" fill="#FFFFFF" opacity="0.45" filter="url(#prSh)"/>
+          </g>
+
+          <g class="float-fast">
+            <rect x="112" y="66" width="140" height="60" rx="12" fill="url(#prO)"/>
+            <ellipse cx="182" cy="86" rx="46" ry="12" fill="#FFFFFF" opacity="0.5" filter="url(#prSh)"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="cards" aria-label="فهرست محصولات">
+      <article class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="pd1" cx="32%" cy="28%" r="78%">
+                <stop offset="0%" stop-color="#FFD0AC"/>
+                <stop offset="45%" stop-color="#FF7A2E"/>
+                <stop offset="100%" stop-color="#8E2D00"/>
+              </radialGradient>
+              <filter id="pd1Sh" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"/></filter>
+            </defs>
+            <ellipse cx="100" cy="172" rx="72" ry="9" fill="#171B2E" opacity="0.15" filter="url(#pd1Sh)"/>
+            <rect x="42" y="52" width="116" height="108" rx="14" fill="url(#pd1)"/>
+            <rect x="42" y="52" width="14" height="108" rx="7" fill="#7A2800" opacity="0.55"/>
+            <ellipse cx="95" cy="80" rx="42" ry="15" fill="#FFFFFF" opacity="0.42" filter="url(#pd1Sh)"/>
+            <rect x="72" y="106" width="66" height="7" rx="3.5" fill="#FFFFFF" opacity="0.55"/>
+            <rect x="72" y="122" width="46" height="6" rx="3" fill="#FFFFFF" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge status">به‌زودی</span>
+          </div>
+          <h3 class="card-title">جزوه‌های آموزشی</h3>
+          <p class="card-desc">منابع نوشتاری برای یادگیری و مرور.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="pd2" cx="32%" cy="28%" r="78%">
+                <stop offset="0%" stop-color="#FFFEF0"/>
+                <stop offset="50%" stop-color="#FFE9A8"/>
+                <stop offset="100%" stop-color="#C2A050"/>
+              </radialGradient>
+              <radialGradient id="pd2b" cx="32%" cy="28%" r="78%">
+                <stop offset="0%" stop-color="#F0FFF8"/>
+                <stop offset="50%" stop-color="#B8E8D8"/>
+                <stop offset="100%" stop-color="#5E9C86"/>
+              </radialGradient>
+              <filter id="pd2Sh" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"/></filter>
+            </defs>
+            <ellipse cx="100" cy="172" rx="76" ry="9" fill="#171B2E" opacity="0.15" filter="url(#pd2Sh)"/>
+            <rect x="46" y="112" width="108" height="52" rx="12" fill="url(#pd2)" transform="rotate(-4 100 138)"/>
+            <rect x="52" y="76" width="108" height="52" rx="12" fill="url(#pd2b)" transform="rotate(2 106 102)"/>
+            <rect x="58" y="42" width="108" height="52" rx="12" fill="url(#pd2)"/>
+            <ellipse cx="90" cy="58" rx="30" ry="10" fill="#FFFFFF" opacity="0.55" filter="url(#pd2Sh)"/>
+            <rect x="76" y="70" width="48" height="5" rx="2.5" fill="#FFFFFF" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge status">به‌زودی</span>
+          </div>
+          <h3 class="card-title">فلش‌کارت واژگان</h3>
+          <p class="card-desc">ابزار مرور و یادگیری واژگان.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="pd3" cx="32%" cy="28%" r="78%">
+                <stop offset="0%" stop-color="#F0FFF8"/>
+                <stop offset="50%" stop-color="#B8E8D8"/>
+                <stop offset="100%" stop-color="#5E9C86"/>
+              </radialGradient>
+              <radialGradient id="pd3b" cx="32%" cy="28%" r="78%">
+                <stop offset="0%" stop-color="#FFD0AC"/>
+                <stop offset="50%" stop-color="#FF7A2E"/>
+                <stop offset="100%" stop-color="#8E2D00"/>
+              </radialGradient>
+              <filter id="pd3Sh" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="6"/></filter>
+            </defs>
+            <ellipse cx="100" cy="172" rx="76" ry="9" fill="#171B2E" opacity="0.15" filter="url(#pd3Sh)"/>
+            <path d="M 42 96 L 158 96 L 148 158 Q 147 164 140 164 L 60 164 Q 53 164 52 158 Z" fill="url(#pd3)"/>
+            <ellipse cx="100" cy="98" rx="58" ry="12" fill="#7FBCA8"/>
+            <ellipse cx="76" cy="112" rx="18" ry="6" fill="#FFFFFF" opacity="0.45" filter="url(#pd3Sh)"/>
+            <rect x="66" y="66" width="66" height="34" rx="5" fill="#FFF9F5" transform="rotate(-6 100 83)"/>
+            <rect x="70" y="72" width="46" height="4" rx="2" fill="#5E9C86" opacity="0.4"/>
+            <rect x="70" y="82" width="34" height="3" rx="1.5" fill="#5E9C86" opacity="0.3"/>
+            <circle cx="148" cy="70" r="20" fill="url(#pd3b)"/>
+            <ellipse cx="142" cy="64" rx="6" ry="4" fill="#FFFFFF" opacity="0.5" filter="url(#pd3Sh)"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge status">به‌زودی</span>
+          </div>
+          <h3 class="card-title">بسته‌های تمرینی</h3>
+          <p class="card-desc">مجموعه تمرین‌های زبان انگلیسی.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="index.html" class="logo footer-logo" aria-label="دیکالینگو">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-text">Dicalingo</span>
+      </a>
+      <div class="footer-links">
+        <a href="https://t.me/dicalingo" target="_blank" rel="noopener noreferrer" aria-label="تلگرام">تلگرام</a>
+        <a href="https://www.youtube.com/@dicalingo" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب">یوتیوب</a>
+      </div>
+      <p class="footer-copy">© دیکالینگو</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
